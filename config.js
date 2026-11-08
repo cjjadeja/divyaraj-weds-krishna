@@ -117,7 +117,7 @@ const WEDDING_CONFIG = {
 
   hostsFooter: {
     complimentsFrom: "With Best Compliments From",
-    familyLine: "Jayendrasinh Bharatsinhji Jadeja <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Nileshwariba Jayendrasinh Jadeja",
+    familyLine: "Jayeshsinh Bharatsinhji Jadeja <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Nileshwariba Jayendrasinh Jadeja",
     secondaryLine: "Entire Jadeja Parivar"
   },
 
