@@ -79,6 +79,7 @@
     }
 
     /* Gate Opening Animation */
+    /* 
     #splash-gate {
       transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.1s ease;
     }
@@ -87,14 +88,38 @@
       opacity: 0;
       pointer-events: none;
     }
-
-    /* Wax Seal Pulse */
-    @keyframes pulse-gold {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6), 0 0 25px rgba(212, 175, 55, 0.4); }
-      50% { box-shadow: 0 0 0 16px rgba(212, 175, 55, 0), 0 0 40px rgba(212, 175, 55, 0.7); }
+    */
+    /* Gate Opening Animation - 3D Envelope Flap */
+    /* Gate Opening Animation - Royal Curtains Split */
+    #splash-gate {
+      transition: visibility 1.6s;
     }
-    .seal-pulse {
-      animation: pulse-gold 2.4s infinite;
+    
+    #left-curtain, #right-curtain {
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s; /* 0.3s delay so seal fades first */
+    }
+    
+    #gate-content {
+      transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* When the Javascript adds the .gate-open class: */
+    #splash-gate.gate-open {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    
+    #splash-gate.gate-open #left-curtain {
+      transform: translateX(-100%);
+    }
+    
+    #splash-gate.gate-open #right-curtain {
+      transform: translateX(100%);
+    }
+    
+    #splash-gate.gate-open #gate-content {
+      opacity: 0;
+      transform: scale(1.2); /* The seal & text zoom slightly toward the user before fading */
     }
 
     /* Scratch Canvas Cursor */
@@ -120,45 +145,63 @@
     <div class="text-center max-w-xs">
       <p class="font-serif-luxury italic text-amber-200/80 text-xl">"Two royal legacies unite in eternal harmony"</p>
       <div class="w-24 h-[1px] bg-amber-500/40 mx-auto my-4"></div>
-      <p class="text-xs uppercase tracking-[0.3em] text-amber-100/60" id="desktop-side-hashtag">#DivyaKiKrishna</p>
+      <p class="text-xs uppercase tracking-[0.3em] text-amber-100/60" id="desktop-side-hashtag">#DevKiKrishna</p>
     </div>
   </div>
 
-  <!-- TOUCH TO OPEN: ROYAL SPLASH GATE -->
-  <div id="splash-gate" class="fixed inset-0 z-50 flex flex-col items-center justify-between py-12 px-6 text-center bg-gradient-to-b from-[#3d0a12] via-[#2B060C] to-[#1a0307] border-4 border-[#D4AF37]/40">
-    <!-- Top Arch Ornament -->
-    <div class="w-full max-w-md flex flex-col items-center">
-      <p class="text-amber-300/90 font-serif-luxury italic text-lg tracking-widest">|| Shree Ganeshaya Namah ||</p>
-      <div class="w-40 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent my-3"></div>
-      <p class="text-[11px] uppercase tracking-[0.35em] text-amber-200/70">A Royal Wedding Invitation</p>
+<!-- TOUCH TO OPEN: ROYAL CURTAINS -->
+  <div id="splash-gate" class="fixed inset-0 z-50 overflow-hidden pointer-events-auto">
+    
+    <!-- Left Curtain -->
+    <div id="left-curtain" class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[#1a0307] via-[#2B060C] to-[#3d0a12] z-0 overflow-hidden">
+      <!-- Texture overlay -->
+      <div class="absolute inset-0 jaali-bg opacity-40"></div>
     </div>
 
-    <!-- Center Wax Seal & Couple Crest -->
-    <div class="my-auto flex flex-col items-center max-w-sm">
-      <div class="mb-6">
-        <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-groom">Divyarajsinh</p>
-        <p class="font-serif-luxury italic text-amber-300 text-xl my-1">weds</p>
-        <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-bride">Krishnaba</p>
-      </div>
-
-      <!-- Personalized Preview Badge on Envelope -->
-      <div id="gate-guest-preview" class="mb-8 px-5 py-3 rounded-xl bg-black/35 border border-[#D4AF37]/40 backdrop-blur-sm">
-        <p class="text-xs uppercase tracking-[0.25em] text-amber-200/70">Cordially Inviting</p>
-        <p id="gate-guest-name" class="font-serif-luxury text-xl text-amber-100 font-semibold mt-1">Our Esteemed Guest</p>
-      </div>
-
-      <!-- Touch to Open Wax Seal Button -->
-      <button id="open-invite-btn" onclick="openInvitation()" class="seal-pulse w-32 h-32 rounded-full gold-foil-bg text-[#2B060C] flex flex-col items-center justify-center border-4 border-[#FDFBF7]/60 shadow-2xl transition active:scale-95">
-        <span class="font-royal text-2xl font-bold tracking-wider" id="seal-monogram">D&K</span>
-        <span class="text-[10px] font-bold uppercase tracking-[0.18em] mt-1 border-t border-[#2B060C]/40 pt-1">Touch to Open</span>
-      </button>
-      <p class="text-xs text-amber-200/60 mt-4 italic font-serif-luxury">Tap the royal seal to unroll your invitation</p>
+    <!-- Right Curtain -->
+    <div id="right-curtain" class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-[#1a0307] via-[#2B060C] to-[#3d0a12] z-0 overflow-hidden">
+      <!-- Texture overlay -->
+      <div class="absolute inset-0 jaali-bg opacity-40"></div>
     </div>
 
-    <!-- Bottom Ornament -->
-    <div class="w-full max-w-md">
-      <div class="w-48 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent mx-auto mb-2"></div>
-      <p class="text-[11px] uppercase tracking-[0.25em] text-amber-200/50">Jamnagar • Bhavnagar</p>
+    <!-- Envelope Content (Seal & Text) -->
+    <div id="gate-content" class="relative z-10 flex flex-col items-center justify-between h-full py-12 px-6 text-center">
+      
+      <!-- Top Arch Ornament -->
+      <div class="w-full max-w-md flex flex-col items-center">
+        <p class="text-amber-300/90 font-serif-luxury italic text-lg tracking-widest">|| Shree Ganeshaya Namah ||</p>
+        <div class="w-40 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent my-3"></div>
+        <p class="text-[11px] uppercase tracking-[0.35em] text-amber-200/70">A Royal Wedding Invitation</p>
+      </div>
+
+      <!-- Center Wax Seal & Couple Crest -->
+      <div class="my-auto flex flex-col items-center max-w-sm">
+        <div class="mb-6">
+          <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-groom">Divyarajsinh</p>
+          <p class="font-serif-luxury italic text-amber-300 text-xl my-1">weds</p>
+          <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-bride">Krishnaba</p>
+        </div>
+
+        <!-- Personalized Preview Badge -->
+        <div id="gate-guest-preview" class="mb-8 px-5 py-3 rounded-xl bg-black/50 border border-[#D4AF37]/40 backdrop-blur-sm">
+          <p class="text-xs uppercase tracking-[0.25em] text-amber-200/70">Cordially Inviting</p>
+          <p id="gate-guest-name" class="font-serif-luxury text-xl text-amber-100 font-semibold mt-1">Our Esteemed Guest</p>
+        </div>
+
+        <!-- Touch to Open Wax Seal Button -->
+        <button id="open-invite-btn" onclick="openInvitation()" class="seal-pulse w-32 h-32 rounded-full gold-foil-bg text-[#2B060C] flex flex-col items-center justify-center border-4 border-[#FDFBF7]/60 shadow-2xl transition active:scale-95">
+          <span class="font-royal text-2xl font-bold tracking-wider" id="seal-monogram">D&K</span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.18em] mt-1 border-t border-[#2B060C]/40 pt-1">Touch to Open</span>
+        </button>
+        <p class="text-xs text-amber-200/60 mt-4 italic font-serif-luxury">Tap the seal to unroll your invitation!</p>
+      </div>
+
+      <!-- Bottom Ornament -->
+      <div class="w-full max-w-md">
+        <div class="w-48 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent mx-auto mb-2"></div>
+        <p class="text-[11px] uppercase tracking-[0.25em] text-amber-200/50">Jamnagar • Bhavnagar</p>
+      </div>
+
     </div>
   </div>
 
@@ -173,9 +216,9 @@
 
     <!-- 1. HERO & ROYAL INVOCATION -->
     <section class="relative pt-12 pb-10 px-6 text-center border-b border-[#D4AF37]/25 overflow-hidden">
-      <!-- Top Decorative Arch SVG -->
-      <div class="mx-auto w-14 h-14 rounded-full border border-[#D4AF37]/50 flex items-center justify-center bg-[#2B060C]/70 mb-3">
-        <span class="text-2xl" aria-hidden="true">🕉️</span>
+      <!-- Top Decorative Arch PNG Art -->
+      <div class="mx-auto w-16 h-16 rounded-full border border-[#D4AF37]/50 flex items-center justify-center bg-[#2B060C]/70 p-2 mb-3 shadow-md">
+        <img src="./resources/ganesha.png" alt="Lord Ganesha" class="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(212,175,55,0.6)]" />
       </div>
       <p class="font-serif-luxury italic text-amber-200 text-lg tracking-wider">|| Shree Ganeshaya Namah ||</p>
       <p class="font-serif-luxury italic text-amber-100/75 text-sm mt-1 max-w-xs mx-auto">
@@ -184,7 +227,7 @@
 
       <!-- Personalized Guest Scroll Card -->
       <div id="guest-welcome-banner" class="royal-card rounded-2xl p-5 mt-7 mb-7">
-        <p class="text-[11px] uppercase tracking-[0.28em] text-amber-300/80">Royal Invitation</p>
+        <p class="text-[11px] uppercase tracking-[0.28em] text-amber-300/80">Invitation</p>
         <!-- Hidden automatically for 'gen*' codes -->
         <h2 id="guest-display-name" class="font-serif-luxury text-2xl sm:text-3xl font-bold gold-gradient-text mt-1">
           Valued Guest
@@ -195,7 +238,7 @@
       </div>
 
       <!-- Parents & Couple Names -->
-      <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70">With the blessings of Kuldevi Maa Ashapura</p>
+      <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70">With the blessings of Kuldevi Momai Mataji and Dadabapu</p>
 
       <div class="mt-6 space-y-2">
         <h1 id="groom-full-name" class="font-royal text-2xl sm:text-3xl gold-gradient-text tracking-wide">
@@ -227,7 +270,7 @@
       <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Auspicious Muhurat</p>
       <h2 class="font-royal text-2xl gold-gradient-text mt-1">Save The Date</h2>
       <p class="font-serif-luxury italic text-amber-100/80 text-base mt-1">
-        Gently scratch the royal gold seal below to reveal the date
+        Scratch the gold seal below to reveal the date
       </p>
 
       <!-- Scratch Container -->
@@ -258,7 +301,7 @@
 
     <!-- 3. LIVE COUNTDOWN SECTION -->
     <section class="py-10 px-6 text-center border-b border-[#D4AF37]/25">
-      <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">The Royal Union Begins In</p>
+      <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">A Tapestry of Two Hearts Begins...</p>
       <h2 class="font-royal text-xl gold-gradient-text mt-1">Counting Every Moment</h2>
 
       <div class="grid grid-cols-4 gap-2.5 mt-6">
@@ -323,7 +366,7 @@
     <section class="py-10 px-6 border-b border-[#D4AF37]/25">
       <div class="text-center mb-6">
         <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Glimpses of Love</p>
-        <h2 class="font-royal text-2xl gold-gradient-text mt-1">Royal Moments</h2>
+        <h2 class="font-royal text-2xl gold-gradient-text mt-1">Moments-Together</h2>
       </div>
 
       <div class="relative royal-card rounded-2xl overflow-hidden p-2">
@@ -347,7 +390,7 @@
     <!-- 7. EVENT-WISE RSVP & BLESSINGS -->
     <section class="py-10 px-6">
       <div class="text-center mb-6">
-        <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Await Your Royal Presence</p>
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Awaiting Your Presence</p>
         <h2 class="font-royal text-2xl gold-gradient-text mt-1">R.S.V.P.</h2>
         <p class="font-serif-luxury italic text-amber-100/80 text-base mt-1">
           Kindly confirm your presence for each celebration
@@ -364,9 +407,9 @@
         <!-- Conditional Name Input Field (Only shown when code starts with 'gen' or no code exists) -->
         <div id="rsvp-gen-name-box" class="hidden">
           <label for="rsvp-custom-name" class="block text-xs uppercase tracking-wider text-amber-200 mb-1.5">
-            Your Full Name & Family <span class="text-amber-400">*</span>
+            Your Full Name <span class="text-amber-400">*</span>
           </label>
-          <input type="text" id="rsvp-custom-name" placeholder="e.g., Rajendrasinh Jadeja & Family"
+          <input type="text" id="rsvp-custom-name" placeholder="e.g. Chaitanyaraj Jadeja"
                  class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/50 text-amber-100 placeholder-amber-200/30 focus:outline-none focus:border-[#D4AF37] text-sm" />
         </div>
 
@@ -401,7 +444,7 @@
 
         <button type="submit" id="rsvp-submit-btn"
                 class="w-full py-3.5 rounded-xl gold-foil-bg text-[#2B060C] font-bold text-xs uppercase tracking-[0.2em] shadow-xl hover:opacity-95 transition">
-          Confirm Royal Attendance
+          Confirm Your Presence
         </button>
 
         <p id="rsvp-status" class="hidden text-center font-serif-luxury text-lg text-amber-300 pt-2"></p>
@@ -415,7 +458,7 @@
         Jayendrasinh Bharatsinhji Jadeja & Nileshwariba Jayendrasinh Jadeja
       </p>
       <p class="font-royal text-2xl gold-gradient-text mt-5" id="footer-monogram">D & K</p>
-      <p class="text-[11px] uppercase tracking-[0.3em] text-amber-200/50 mt-1" id="footer-hashtag">#DivyaKiKrishna</p>
+      <p class="text-[11px] uppercase tracking-[0.3em] text-amber-200/50 mt-1" id="footer-hashtag">#DevKiKrishna</p>
     </footer>
 
   </main>
@@ -457,9 +500,9 @@
       document.getElementById("gate-bride").textContent = c.couple.bride.shortName;
 
       document.getElementById("groom-full-name").textContent = c.couple.groom.name;
-      document.getElementById("groom-parents").textContent = c.couple.groom.parents;
+      document.getElementById("groom-parents").innerHTML = c.couple.groom.parents;
       document.getElementById("bride-full-name").textContent = c.couple.bride.name;
-      document.getElementById("bride-parents").textContent = c.couple.bride.parents;
+      document.getElementById("bride-parents").innerHTML = c.couple.bride.parents;
 
       document.getElementById("reveal-day").textContent = c.weddingDate.dayOfWeek;
       document.getElementById("reveal-date").textContent = c.weddingDate.displayDate;
@@ -475,7 +518,7 @@
 
       // Footer
       document.getElementById("footer-compliments").textContent = c.hostsFooter.complimentsFrom;
-      document.getElementById("footer-family").textContent = c.hostsFooter.familyLine;
+      document.getElementById("footer-family").innerHTML = c.hostsFooter.familyLine;
       document.getElementById("footer-monogram").textContent = c.couple.monogram;
       document.getElementById("footer-hashtag").textContent = c.couple.hashtag;
 
@@ -584,7 +627,8 @@
 
       // Rule: If code begins with 'gen', only consider number of pax; no invitee names shown
       if (currentGuest.isGeneric || !currentGuest.names) {
-        gateName.textContent = `You & Your Family (${currentGuest.pax} ${currentGuest.pax === 1 ? 'Seat' : 'Seats'})`;
+        // gateName.textContent = `You & Your Family (${currentGuest.pax} ${currentGuest.pax === 1 ? 'Seat' : 'Seats'})`;
+        gateName.textContent = `You & Your Family`;
         displayName.classList.add("hidden");
         knownGuestBox.classList.add("hidden");
         genNameBox.classList.remove("hidden");
@@ -731,7 +775,7 @@
       ctx.textAlign = "center";
       ctx.fillText("✨ SCRATCH TO REVEAL ✨", canvas.width / 2, canvas.height / 2 - 6);
       ctx.font = "italic 14px 'Cormorant Garamond', serif";
-      ctx.fillText("Rub gently with your finger", canvas.width / 2, canvas.height / 2 + 18);
+      // ctx.fillText("Rub gently with your finger", canvas.width / 2, canvas.height / 2 + 18);
 
       function getCoords(e) {
         const rect = canvas.getBoundingClientRect();

@@ -10,20 +10,21 @@ const WEDDING_CONFIG = {
   // AKfycbwX0oGS1fmIA7qe1iZ0d2cfDAGanV3KaAUZdN-qJxF3oZF06JOU-3DV4GS6_Y5nVNWE
 
   // Optional background instrumental audio (MP3 path or URL)
-  backgroundMusicUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3",
+  // backgroundMusicUrl: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3",
+  backgroundMusicUrl: "./resources/bgm.mp3",
 
   couple: {
     monogram: "D & K",
-    hashtag: "#DivyaKiKrishna",
+    hashtag: "#DevKiKrishna",
     groom: {
       name: "Divyarajsinh J. Jadeja",
       shortName: "Divyarajsinh",
-      parents: "Son of Smt. Nileshwariba Jayendrasinh Jadeja & Jayendrasinh Bharatsinhji Jadeja"
+      parents: "Son of Smt. Nileshwariba Jayeshsinh Jadeja <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Jayeshsinh Bharatsinhji Jadeja"
     },
     bride: {
       name: "Krishnaba Rana",
       shortName: "Krishnaba",
-      parents: "Daughter of Smt. Jyotiba Mahipalsinh Rana & Mahipalsinh Jasubha Rana"
+      parents: "Daughter of Smt. Jyotiba Mahipalsinh Rana <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Mahipalsinh Jasubha Rana"
     }
   },
 
@@ -53,10 +54,10 @@ const WEDDING_CONFIG = {
     },
     {
       id: "sangeet",
-      title: "Royal Sangeet",
-      subtitle: "An Evening of Melodies • With Gala Dinner",
+      title: "Sangeet Gala",
+      subtitle: "An Evening of Melodies • With Dinner",
       date: "27th January 2027",
-      time: "7:30 PM Onwards • With Gala Dinner",
+      time: "7:30 PM Onwards • Followed by Dinner",
       venueName: "Krushnakunj Mandapam",
       address: "Sidsar Budhel Road, Bhavnagar",
       mapUrl: "https://maps.google.com/?q=Krushnakunj+Mandapam+Sidsar+Budhel+Road+Bhavnagar",
@@ -91,32 +92,32 @@ const WEDDING_CONFIG = {
     subtitle: "We have arranged your comfortable stay in Bhavnagar",
     hotelName: "Iscon - The Fern Resort & Spa",
     address: "Bhavnagar, Gujarat",
-    checkInNote: "Kindly present your invitation code at the hospitality desk upon arrival.",
+    // checkInNote: "Kindly present your invitation code at the hospitality desk upon arrival.",
     mapUrl: "https://maps.google.com/?q=Iscon+The+Fern+Resort+and+Spa+Bhavnagar"
   },
 
   gallery: [
     {
-      url: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=80",
-      caption: "A Royal Beginning"
+      url: "./resources/1.jpeg?auto=format&fit=crop&w=900&q=80",
+      caption: "The Beginning"
     },
     {
-      url: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80",
+      url: "./resources/2.jpeg?auto=format&fit=crop&w=900&q=80",
       caption: "Written in the Stars"
     },
     {
-      url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80",
+      url: "./resources/3.jpeg?auto=format&fit=crop&w=900&q=80",
       caption: "Two Souls, One Journey"
     },
     {
-      url: "https://images.unsplash.com/photo-1610173827002-62c0f1f05d04?auto=format&fit=crop&w=900&q=80",
+      url: "./resources/4.jpeg?auto=format&fit=crop&w=900&q=80",
       caption: "Celebrating Forever"
     }
   ],
 
   hostsFooter: {
     complimentsFrom: "With Best Compliments From",
-    familyLine: "Jayendrasinh Bharatsinhji Jadeja & Nileshwariba Jayendrasinh Jadeja",
+    familyLine: "Jayendrasinh Bharatsinhji Jadeja <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Nileshwariba Jayendrasinh Jadeja",
     secondaryLine: "Entire Jadeja Parivar"
   },
 
