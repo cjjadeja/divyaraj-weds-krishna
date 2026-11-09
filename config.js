@@ -22,7 +22,7 @@ const WEDDING_CONFIG = {
       parents: "Son of Smt. Nileshwariba Jayeshsinh Jadeja <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Jayeshsinh Bharatsinhji Jadeja"
     },
     bride: {
-      name: "Krishnaba Rana",
+      name: "Krishnaba M. Rana",
       shortName: "Krishnaba",
       parents: "Daughter of Smt. Jyotiba Mahipalsinh Rana <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Mahipalsinh Jasubha Rana"
     }
@@ -79,7 +79,7 @@ const WEDDING_CONFIG = {
       title: "Procession (Varghodo)",
       subtitle: "Celebratory procession to the wedding venue with friends and family",
       date: "28th January 2027",
-      time: "At 5:30 PM",
+      time: "At 5:30 PM • Followed by Wedding Ceremony",
       venueName: "Chitra-Sidsar T Junction",
       address: "300m from Wedding Venue, Bhavnagar",
       mapUrl: "https://maps.app.goo.gl/XSHyrwdmnjRiQMa9A",
@@ -128,7 +128,7 @@ const WEDDING_CONFIG = {
 
   hostsFooter: {
     complimentsFrom: "With Best Compliments From",
-    familyLine: "Jayeshsinh Bharatsinhji Jadeja <br> <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Nileshwariba Jayeshsinh Jadeja",
+    familyLine: "Jayeshsinh Bharatsinhji Jadeja, <br> Nileshwariba Jayeshsinh Jadeja, <br> Chaitanyarajsinh Jayeshsinh Jadeja <span class='text-amber-300/80 font-serif italic text-sm py-1 block'>&</span> Entire Jadeja Parivar",
     secondaryLine: "Entire Jadeja Parivar"
   },
 

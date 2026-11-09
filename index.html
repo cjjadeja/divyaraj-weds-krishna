@@ -59,6 +59,41 @@
       background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 35%, #B38728 70%, #AA771C 100%);
     }
 
+    /* Wax Seal Aura & Shimmer Animations */
+    .seal-active-glow {
+      position: relative;
+      animation: seal-pulse-glow 2.5s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    @keyframes seal-pulse-glow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7), inset 0 0 0 rgba(255, 255, 255, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 25px rgba(212, 175, 55, 0), inset 0 0 15px rgba(255, 255, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0), inset 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    /* Sweeping light reflection */
+    .seal-active-glow::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-25deg);
+      animation: seal-shimmer 3s infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes seal-shimmer {
+      0% { left: -100%; }
+      20% { left: 200%; }
+      100% { left: 200%; }
+    }
+
     /* Ornate Royal Card */
     .royal-card {
       background: linear-gradient(180deg, rgba(74, 14, 23, 0.92) 0%, rgba(43, 6, 12, 0.96) 100%);
@@ -138,7 +173,7 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex justify-center bg-[#1c0408] selection:bg-[#D4AF37] selection:text-[#2B060C]">
+<body class="overflow-hidden min-h-screen flex justify-center bg-[#1c0408] selection:bg-[#D4AF37] selection:text-[#2B060C]">
 
   <!-- GLOBAL LOADER -->
   <div id="global-loader" class="fixed inset-0 z-[60] bg-[#1a0307] flex flex-col items-center justify-center transition-opacity duration-700">
@@ -146,7 +181,7 @@
     <div class="w-14 h-14 border-4 border-[#D4AF37]/20 border-t-[#D4AF37] rounded-full animate-spin mb-5"></div>
     <!-- Pulsing Royal Text -->
     <p class="font-serif-luxury italic text-amber-200 text-lg tracking-widest animate-pulse">
-      Preparing Your Royal Invitation...
+      Fetching Your Invitation...
     </p>
   </div>
 
@@ -159,7 +194,7 @@
       <p class="text-xs uppercase tracking-[0.3em] text-amber-100/60">28 • 01 • 2027</p>
     </div>
     <div class="text-center max-w-xs">
-      <p class="font-serif-luxury italic text-amber-200/80 text-xl">"Two royal legacies unite in eternal harmony"</p>
+      <p class="font-serif-luxury italic text-amber-200/80 text-xl">"Two families blend, two hearts unite, forever begins"</p>
       <div class="w-24 h-[1px] bg-amber-500/40 mx-auto my-4"></div>
       <p class="text-xs uppercase tracking-[0.3em] text-amber-100/60" id="desktop-side-hashtag">#DevKiKrishna</p>
     </div>
@@ -183,38 +218,40 @@
     <!-- Envelope Content (Seal & Text) -->
     <div id="gate-content" class="relative z-10 flex flex-col items-center justify-between h-full py-12 px-6 text-center">
       
-      <!-- Top Arch Ornament -->
+      <!-- Top Arch Ornament (Stays pinned to the top) -->
       <div class="w-full max-w-md flex flex-col items-center">
         <p class="text-amber-300/90 font-serif-luxury italic text-lg tracking-widest">|| Shree Ganeshaya Namah ||</p>
-        <div class="w-40 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent my-3"></div>
-        <p class="text-[11px] uppercase tracking-[0.35em] text-amber-200/70">Jadeja Family Cordially Invites You To The Marriage of</p>
+        <div class="w-40 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mt-4 mb-2"></div><br>
+        <p class="text-[11px] uppercase tracking-[0.35em] text-amber-200/70 mb-5 leading-relaxed px-4">Jadeja Family Cordially Invites You To The Marriage of</p>
       </div>
 
-      <!-- Center Wax Seal & Couple Crest -->
-      <div class="my-auto flex flex-col items-center max-w-sm">
-        <div class="mb-6">
+      <!-- Center Wax Seal & Couple Crest (Groups text tightly together) -->
+      <div class="my-auto flex flex-col items-center max-w-sm w-full pt-4">
+          
+        <!-- NAMES: Increased bottom margin (mb-12) for more space before the guest badge -->
+        <div class="mb-12">
           <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-groom">Divyarajsinh</p>
-          <p class="font-serif-luxury italic text-amber-300 text-xl my-1">&</p>
+          <p class="font-serif-luxury italic text-amber-300 text-xl my-1.5">&</p>
           <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-bride">Krishnaba</p>
         </div>
 
         <!-- Personalized Preview Badge -->
-        <div id="gate-guest-preview" class="mb-8 px-5 py-3 rounded-xl bg-black/50 border border-[#D4AF37]/40 backdrop-blur-sm">
+        <div id="gate-guest-preview" class="mb-10 w-full max-w-[280px] px-5 py-3.5 rounded-xl bg-black/50 border border-[#D4AF37]/40 backdrop-blur-sm shadow-lg">
           <p class="text-xs uppercase tracking-[0.25em] text-amber-200/70">Cordially Inviting</p>
           <p id="gate-guest-name" class="font-serif-luxury text-xl text-amber-100 font-semibold mt-1">Our Esteemed Guest</p>
         </div>
 
         <!-- Touch to Open Wax Seal Button -->
-        <button id="open-invite-btn" onclick="openInvitation()" class="seal-pulse w-32 h-32 rounded-full gold-foil-bg text-[#2B060C] flex flex-col items-center justify-center border-4 border-[#FDFBF7]/60 shadow-2xl transition active:scale-95">
-          <span class="font-royal text-2xl font-bold tracking-wider" id="seal-monogram">D&K</span>
-          <span class="text-[10px] font-bold uppercase tracking-[0.18em] mt-1 border-t border-[#2B060C]/40 pt-1">Touch to Open</span>
+        <button id="open-invite-btn" onclick="openInvitation()" class="seal-active-glow overflow-hidden w-32 h-32 rounded-full gold-foil-bg text-[#2B060C] flex flex-col items-center justify-center border-4 border-[#FDFBF7]/60 transition active:scale-95">
+          <span class="font-royal text-2xl font-bold tracking-wider relative z-10" id="seal-monogram">D&K</span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.18em] mt-1 border-t border-[#2B060C]/40 pt-1 relative z-10">Tap to Open</span>
         </button>
         <p class="text-xs text-amber-200/60 mt-4 italic font-serif-luxury">Tap the seal to unroll your invitation!</p>
       </div>
 
-      <!-- Bottom Ornament -->
+      <!-- Bottom Ornament (Stays pinned to the bottom) -->
       <div class="w-full max-w-md">
-        <div class="w-48 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent mx-auto mb-2"></div>
+        <div class="w-48 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent mx-auto mb-3"></div>
         <p class="text-[11px] uppercase tracking-[0.25em] text-amber-200/50">Jamnagar • Bhavnagar</p>
       </div>
 
@@ -228,7 +265,7 @@
   <audio id="bg-music" loop preload="auto"></audio>
 
   <!-- MAIN INVITATION CONTAINER (Mobile-first width on all screens, centered on laptop) -->
-  <main class="w-full max-w-[480px] min-h-screen jaali-bg shadow-[0_0_80px_rgba(0,0,0,0.9)] border-x border-[#D4AF37]/30 relative z-10 pb-20">
+  <main class="w-full max-w-[480px] min-h-screen jaali-bg shadow-[0_0_80px_rgba(0,0,0,0.9)] border-x border-[#D4AF37]/30 relative z-10">
 
     <!-- 1. HERO & ROYAL INVOCATION -->
     <section class="relative pt-12 pb-10 px-6 text-center border-b border-[#D4AF37]/25 overflow-hidden">
@@ -316,7 +353,8 @@
     </section>
 
     <!-- 3. LIVE COUNTDOWN SECTION -->
-    <section class="py-10 px-6 text-center border-b border-[#D4AF37]/25">
+    <!-- 3. LIVE COUNTDOWN SECTION -->
+    <section id="countdown-section" class="hidden opacity-0 transition-opacity duration-1000 py-10 px-6 text-center border-b border-[#D4AF37]/25">
       <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">A Tapestry of Two Hearts Begins...</p>
       <h2 class="font-royal text-xl gold-gradient-text mt-1">Counting Every Moment</h2>
 
@@ -480,7 +518,7 @@
 
         <button type="submit" id="rsvp-submit-btn"
                 class="w-full py-3.5 rounded-xl gold-foil-bg text-[#2B060C] font-bold text-xs uppercase tracking-[0.2em] shadow-xl hover:opacity-95 transition">
-          Confirm Royal Response
+          Confirm Your Attendance
         </button>
 
         <p id="rsvp-status" class="hidden text-center font-serif-luxury text-lg text-amber-300 pt-2"></p>
@@ -488,13 +526,22 @@
     </section>
 
     <!-- 8. FOOTER / COMPLIMENTS -->
-    <footer class="pt-6 pb-10 px-6 text-center border-t border-[#D4AF37]/25">
+    <footer class="pt-6 pb-3 px-6 text-center border-t border-[#D4AF37]/25">
       <p class="text-xs uppercase tracking-[0.25em] text-amber-300/70" id="footer-compliments">With Best Compliments From</p>
+      <br>
       <p class="font-serif-luxury text-lg text-amber-100 mt-1" id="footer-family">
         Jayeshsinh Bharatsinhji Jadeja & Nileshwariba Jayeshsinh Jadeja
       </p>
+      <br><br>
       <p class="font-royal text-2xl gold-gradient-text mt-5" id="footer-monogram">D & K</p>
       <p class="text-[11px] uppercase tracking-[0.3em] text-amber-200/50 mt-1" id="footer-hashtag">#DevKiKrishna</p>
+
+      <!-- Developer Credit (Pushed to extreme bottom) -->
+      <div class="mt-28">
+        <p class="text-[9px] uppercase tracking-[0.2em] text-amber-100/40 flex items-center justify-center gap-1.5">
+          Created with <span class="text-white/60 text-[10px]">🤍</span> by Kartavya Technologies Pvt. Ltd.
+        </p>
+      </div>
     </footer>
 
   </main>
@@ -513,8 +560,18 @@
     let slideInterval = null;
     let isMusicPlaying = false;
 
+    // Aggressively prevent all scrolling actions
+    function preventScroll(e) {
+      e.preventDefault();
+    }
+
     // Initialize Page
     document.addEventListener("DOMContentLoaded", async () => {
+
+      // Lock screen from rubber-band scrolling
+      window.addEventListener('touchmove', preventScroll, { passive: false });
+      window.addEventListener('wheel', preventScroll, { passive: false });
+
       applyStaticConfig();
       initPaxDropdown();
       
@@ -719,6 +776,27 @@
       const gate = document.getElementById("splash-gate");
       gate.classList.add("gate-open");
 
+      // 1. Remove the aggressive scroll locks
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('wheel', preventScroll);
+      
+      // 2. Ensure page is at the very top and remove overflow hidden
+      document.body.classList.remove("overflow-hidden");
+      window.scrollTo(0, 0);
+
+      // 3. Attempt Fullscreen (Works on Android/Desktop, ignored gracefully by iOS)
+      const docEl = document.documentElement;
+      try {
+        if (docEl.requestFullscreen) {
+          docEl.requestFullscreen().catch(() => {});
+        } else if (docEl.webkitRequestFullscreen) { /* Safari */
+          docEl.webkitRequestFullscreen();
+        }
+      } catch (err) {
+        console.log("Fullscreen API blocked or unsupported.");
+      }
+
+      // 4. Play Audio
       const audio = document.getElementById("bg-music");
       const musicBtn = document.getElementById("music-toggle");
       if (WEDDING_CONFIG.backgroundMusicUrl) {
@@ -739,9 +817,11 @@
       if (audio.paused) {
         audio.play();
         icon.textContent = "🔊";
+        isMusicPlaying = true; // Track that user wants music ON
       } else {
         audio.pause();
         icon.textContent = "🔇";
+        isMusicPlaying = false; // Track that user wants music OFF
       }
     }
 
@@ -812,41 +892,131 @@
       }
     }
 
-    // Scratch-to-Reveal HTML5 Canvas
+    // Scratch-to-Reveal HTML5 Canvas (High-Res with Falling Glitter)
     function initScratchCard() {
       const canvas = document.getElementById("scratch-canvas");
       const ctx = canvas.getContext("2d");
+      
+      // 1. High-DPI Canvas Scaling (Fixes Blurry Text)
+      const dpr = window.devicePixelRatio || 1;
+      const cssWidth = 288;
+      const cssHeight = 176;
+      
+      canvas.width = cssWidth * dpr;
+      canvas.height = cssHeight * dpr;
+      canvas.style.width = cssWidth + "px";
+      canvas.style.height = cssHeight + "px";
+      ctx.scale(dpr, dpr);
+
       let isDrawing = false;
       let isRevealed = false;
 
-      // Paint Metallic Gold Foil Layer
-      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      grad.addColorStop(0, "#B38728");
-      grad.addColorStop(0.3, "#FCF6BA");
-      grad.addColorStop(0.6, "#D4AF37");
+      // 2. Setup Transparent Glitter Overlay Canvas
+      const container = canvas.parentElement;
+      const glitterCanvas = document.createElement("canvas");
+      glitterCanvas.width = cssWidth * dpr;
+      glitterCanvas.height = cssHeight * dpr;
+      glitterCanvas.style.width = cssWidth + "px";
+      glitterCanvas.style.height = cssHeight + "px";
+      glitterCanvas.className = "absolute inset-0 z-20 pointer-events-none transition-opacity duration-700";
+      container.appendChild(glitterCanvas);
+      
+      const gCtx = glitterCanvas.getContext("2d");
+      gCtx.scale(dpr, dpr);
+      let particles = [];
+
+      // Paint Highly Reflective Metallic Gold Foil Layer
+      const grad = ctx.createLinearGradient(0, 0, cssWidth, cssHeight);
+      grad.addColorStop(0, "#AA771C");
+      grad.addColorStop(0.15, "#FDFBF7");
+      grad.addColorStop(0.3, "#B38728");
+      grad.addColorStop(0.5, "#FCF6BA");
+      grad.addColorStop(0.65, "#D4AF37");
+      grad.addColorStop(0.85, "#FDFBF7");
       grad.addColorStop(1, "#8A5A10");
       ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, cssWidth, cssHeight);
 
-      // Decorative border & text on foil
-      ctx.strokeStyle = "#4A0E17";
-      ctx.lineWidth = 2;
-      ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
+      // MATCHING DASHED BORDER (With rounded corners)
+      ctx.strokeStyle = "rgba(74, 14, 23, 0.4)"; // Etched maroon for elegant contrast
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 5]); // Creates the dashed/dotted effect
+      
+      // Draw a rounded rectangle inset by 5px, with a 12px border radius
+      ctx.beginPath();
+      ctx.roundRect(5, 5, cssWidth - 10, cssHeight - 10, 12);
+      ctx.stroke();
+      
+      ctx.setLineDash([]); // Reset line dash so the text below doesn't get dotted
 
-      ctx.fillStyle = "#3d0a12";
-      ctx.font = "bold 16px 'Cinzel Decorative', serif";
+      // Embossed 3D Text Effect
       ctx.textAlign = "center";
-      ctx.fillText("✨ SCRATCH TO REVEAL ✨", canvas.width / 2, canvas.height / 2 - 6);
-      ctx.font = "italic 14px 'Cormorant Garamond', serif";
-      // ctx.fillText("Rub gently with your finger", canvas.width / 2, canvas.height / 2 + 18);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
+      ctx.font = "bold 17px 'Cinzel Decorative', serif";
+      ctx.fillText("SCRATCH TO REVEAL", cssWidth / 2, cssHeight / 2 - 4);
+      
+      ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
+      ctx.font = "italic 16px 'Cormorant Garamond', serif";
+      ctx.fillText("the Auspicious Date", cssWidth / 2, cssHeight / 2 + 21);
+
+      ctx.fillStyle = "#2B060C";
+      ctx.font = "bold 17px 'Cinzel Decorative', serif";
+      ctx.fillText("SCRATCH TO REVEAL", cssWidth / 2, cssHeight / 2 - 5);
+      
+      ctx.fillStyle = "#4A0E17";
+      ctx.font = "italic 16px 'Cormorant Garamond', serif";
+      ctx.fillText("the Auspicious Date", cssWidth / 2, cssHeight / 2 + 20);
+
+      // 3. Falling Glitter Particle Engine
+      function spawnParticles(x, y) {
+        for(let i = 0; i < 4; i++) {
+          particles.push({
+            x: x + (Math.random() * 30 - 15),
+            y: y + (Math.random() * 30 - 15),
+            vx: (Math.random() - 0.5) * 2,
+            vy: Math.random() * 3 + 1.5,
+            size: Math.random() * 2 + 1,
+            life: 1,
+            decay: Math.random() * 0.04 + 0.02,
+            color: Math.random() > 0.5 ? "#FDFBF7" : "#D4AF37"
+          });
+        }
+      }
+
+      function animateGlitter() {
+        if (isRevealed && particles.length === 0) {
+           glitterCanvas.remove();
+           return;
+        }
+        gCtx.clearRect(0, 0, cssWidth, cssHeight);
+        for (let i = particles.length - 1; i >= 0; i--) {
+          let p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= p.decay;
+          
+          if (p.life <= 0) {
+            particles.splice(i, 1);
+          } else {
+            gCtx.globalAlpha = Math.max(0, p.life);
+            gCtx.fillStyle = p.color;
+            gCtx.beginPath();
+            gCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            gCtx.fill();
+            gCtx.globalAlpha = 1;
+          }
+        }
+        requestAnimationFrame(animateGlitter);
+      }
+      animateGlitter();
 
       function getCoords(e) {
         const rect = canvas.getBoundingClientRect();
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         return {
-          x: (clientX - rect.left) * (canvas.width / rect.width),
-          y: (clientY - rect.top) * (canvas.height / rect.height)
+          x: (clientX - rect.left) * (cssWidth / rect.width),
+          y: (clientY - rect.top) * (cssHeight / rect.height)
         };
       }
 
@@ -854,25 +1024,48 @@
         if (!isDrawing || isRevealed) return;
         e.preventDefault();
         const { x, y } = getCoords(e);
+        
         ctx.globalCompositeOperation = "destination-out";
         ctx.beginPath();
         ctx.arc(x, y, 24, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Spawn gold dust where the finger rubs
+        spawnParticles(x, y);
         checkRevealPercentage();
       }
 
       function checkRevealPercentage() {
-        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        const rawWidth = canvas.width;
+        const rawHeight = canvas.height;
+        const imgData = ctx.getImageData(0, 0, rawWidth, rawHeight).data;
+        
         let transparentPixels = 0;
-        const totalPixels = imgData.length / 4;
+        const totalPixels = rawWidth * rawHeight;
+        
+        // Sample every 16th pixel to save CPU
         for (let i = 3; i < imgData.length; i += 16) {
           if (imgData[i] < 128) transparentPixels++;
         }
+        
         const ratio = transparentPixels / (totalPixels / 4);
-        if (ratio > 0.42) {
+        if (ratio > 0.70) {
           isRevealed = true;
           canvas.style.opacity = "0";
-          setTimeout(() => canvas.remove(), 700);
+          glitterCanvas.style.opacity = "0";
+
+          // NEW: Smoothly reveal the countdown section
+          const countdownSec = document.getElementById("countdown-section");
+          if (countdownSec) {
+            countdownSec.classList.remove("hidden"); // Remove display: none
+            void countdownSec.offsetWidth;           // Force DOM reflow so transition works
+            countdownSec.classList.remove("opacity-0"); // Trigger the 1-second fade-in
+          }
+
+          setTimeout(() => {
+            canvas.remove();
+            glitterCanvas.remove();
+          }, 700);
         }
       }
 
@@ -1039,7 +1232,7 @@
       };
 
       btn.disabled = true;
-      btn.textContent = "Recording Your Royal Response...";
+      btn.textContent = "Recording Your Response...";
 
       try {
         if (!WEDDING_CONFIG.googleAppsScriptUrl.includes("YOUR_SCRIPT")) {
@@ -1050,7 +1243,7 @@
             body: JSON.stringify(payload)
           });
         }
-        status.textContent = "✨ Jai Mataji! Your response & blessings have been recorded.";
+        status.textContent = "✨ Jai Mataji! Your response & blessings have been recorded. ✨";
         status.classList.remove("hidden");
         btn.textContent = "Response Recorded";
       } catch (err) {
@@ -1060,6 +1253,29 @@
         btn.textContent = "Confirm Attendance";
       }
     }
+
+    // Pause audio when leaving the tab/app, resume when returning
+    document.addEventListener("visibilitychange", () => {
+      const audio = document.getElementById("bg-music");
+      
+      if (document.hidden) {
+        // User switched tabs or minimized the app. Pause the music.
+        if (!audio.paused) {
+          audio.pause();
+        }
+      } else {
+        // User came back to the invitation.
+        // Only resume if they hadn't manually muted it before leaving.
+        if (isMusicPlaying) {
+          audio.play().catch(() => {
+            // Failsafe in case mobile browser blocks auto-resume
+            isMusicPlaying = false;
+            document.getElementById("music-icon").textContent = "🔇";
+          });
+        }
+      }
+    });
+
   </script>
 </body>
 </html>
