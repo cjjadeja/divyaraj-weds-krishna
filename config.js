@@ -1,7 +1,7 @@
 // config.js
 const WEDDING_CONFIG = {
   // Data Source Mode: "tsv" (reads local guests.tsv) or "google_sheet" (uses Apps Script URL below)
-  dataSource: "tsv",
+  dataSource: "google_sheet",
   tsvFilePath: "./guests.tsv",
 
   // Paste your deployed Google Apps Script Web App URL here (used for RSVP POST and optional Sheet GET)
@@ -36,7 +36,7 @@ const WEDDING_CONFIG = {
     isoStart: "2027-01-28T19:30:00+05:30",
     isoEnd: "2027-01-28T23:30:00+05:30",
     calendarTitle: "Divyarajsinh & Krishnaba's Wedding Ceremony",
-    calendarDescription: "Join us to celebrate the royal union of Divyarajsinh J. Jadeja & Krishnaba Rana.",
+    calendarDescription: "Join us to celebrate the royal union of Divyarajsinh J. Jadeja & Krishnaba M. Rana.",
     calendarLocation: "Krushnakunj Mandapam, Sidsar Budhel Road, Bhavnagar, Gujarat"
   },
 
@@ -73,6 +73,17 @@ const WEDDING_CONFIG = {
       address: "Sidsar Budhel Road, Bhavnagar",
       mapUrl: "https://maps.google.com/?q=Krushnakunj+Mandapam+Sidsar+Budhel+Road+Bhavnagar",
       icon: "🌼"
+    },
+    {
+      id: "procession",
+      title: "Procession (Varghodo)",
+      subtitle: "Celebratory procession to the wedding venue with friends and family",
+      date: "28th January 2027",
+      time: "At 5:30 PM",
+      venueName: "Chitra-Sidsar T Junction",
+      address: "300m from Wedding Venue, Bhavnagar",
+      mapUrl: "https://maps.app.goo.gl/XSHyrwdmnjRiQMa9A",
+      icon: "🏇🏼"
     },
     {
       id: "wedding",
@@ -123,8 +134,12 @@ const WEDDING_CONFIG = {
 
   // Built-in fallback rows so you can test ?code=roy01 or ?code=gen1 immediately
   fallbackGuests: [
-    { code: "roy01", names: "Darbarsaheb Vikramadityasinhji & Family", mobile: "9876543210", pax: 4, accommodation: "Yes" },
-    { code: "roy02", names: "Shri Rajendrasinh Zala & Smt. Padminiba", mobile: "9876543211", pax: 2, accommodation: "No" },
+    { code: "roy01", names: "Darbarsaheb Vikramadityasinhji & Family", mobile: "9876543210", pax: 4, accommodation: "Yes",
+      allowedEvents: { mandap_mahurat: true, sangeet: true, haldi: true, procession: true, wedding: true } 
+    },
+    { code: "roy02", names: "Shri Rajendrasinh Zala & Smt. Padminiba", mobile: "9876543211", pax: 2, accommodation: "No",
+      allowedEvents: { mandap_mahurat: false, sangeet: false, haldi: false, procession: false, wedding: true } 
+    },
     { code: "gen1", names: "", mobile: "", pax: 1, accommodation: "No" },
     { code: "gen2", names: "", mobile: "", pax: 2, accommodation: "Yes" },
     { code: "gen3", names: "", mobile: "", pax: 4, accommodation: "No" }
