@@ -44,7 +44,7 @@ const WEDDING_CONFIG = {
     {
       id: "mandap_mahurat",
       title: "Mandap Mahurat",
-      subtitle: "Auspicious Beginning • Followed by Lunch",
+      subtitle: "Auspicious Beginning",
       date: "26th January 2027",
       time: "Morning Muhurat • Followed by Lunch",
       venueName: "Shraddha",
@@ -55,7 +55,7 @@ const WEDDING_CONFIG = {
     {
       id: "sangeet",
       title: "Sangeet Gala",
-      subtitle: "An Evening of Melodies • With Dinner",
+      subtitle: "An Evening of Moves & Melodies",
       date: "27th January 2027",
       time: "7:30 PM Onwards • Followed by Dinner",
       venueName: "Krushnakunj Mandapam",
@@ -66,7 +66,7 @@ const WEDDING_CONFIG = {
     {
       id: "haldi",
       title: "Haldi Utsav",
-      subtitle: "Hues of Marigold & Turmeric • Followed by Lunch",
+      subtitle: "Hues of Marigold & Turmeric",
       date: "28th January 2027",
       time: "10:00 AM Onwards • Followed by Lunch",
       venueName: "Krushnakunj Mandapam",
@@ -77,7 +77,7 @@ const WEDDING_CONFIG = {
     {
       id: "procession",
       title: "Procession (Varghodo)",
-      subtitle: "Celebratory procession to the wedding venue with friends and family",
+      subtitle: "Celebratory procession with friends and family (You can't be late for this!)",
       date: "28th January 2027",
       time: "At 5:30 PM • Followed by Wedding Ceremony",
       venueName: "Chitra-Sidsar T Junction",
@@ -88,7 +88,7 @@ const WEDDING_CONFIG = {
     {
       id: "wedding",
       title: "Wedding Ceremony",
-      subtitle: "Hasta Melap • Followed by Royal Dinner",
+      subtitle: "Hasta Melap",
       date: "28th January 2027",
       time: "Muhurat at 7:30 PM • Followed by Dinner",
       venueName: "Krushnakunj Mandapam",

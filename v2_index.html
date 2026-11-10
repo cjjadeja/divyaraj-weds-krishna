@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Divyarajsinh & Krishnaba | Royal Wedding Invitation</title>
+
+  <!-- WhatsApp / Open Graph Link Preview -->
+  <meta property="og:title" content="Divyarajsinh & Krishnaba | Royal Wedding Invitation" />
+  <meta property="og:description" content="Cordially inviting you to celebrate the royal union of Divyarajsinh J. Jadeja & Krishnaba Rana on 28th January 2027." />
+  <meta property="og:image" content="https://cjjadeja.github.io/divyaraj-weds-krishna/resources/preview.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cinzel Decorative, Cormorant Garamond, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Load Configuration -->
+  <script src="./config.js"></script>
+
+  <style>
+    :root {
+      --royal-maroon: #4A0E17;
+      --royal-crimson: #6B1422;
+      --royal-dark: #2B060C;
+      --antique-gold: #D4AF37;
+      --gold-light: #F3E5AB;
+      --royal-ivory: #FDFBF7;
+    }
+
+    body {
+      background-color: var(--royal-dark);
+      color: var(--royal-ivory);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .font-royal {
+      font-family: 'Cinzel Decorative', serif;
+    }
+
+    .font-serif-luxury {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Gold Foil Text Gradient */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Metallic Gold Button / Border */
+    .gold-foil-bg {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 35%, #B38728 70%, #AA771C 100%);
+    }
+
+    /* Wax Seal Aura & Shimmer Animations */
+    .seal-active-glow {
+      position: relative;
+      animation: seal-pulse-glow 2.5s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+    @keyframes seal-pulse-glow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7), inset 0 0 0 rgba(255, 255, 255, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 0 25px rgba(212, 175, 55, 0), inset 0 0 15px rgba(255, 255, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0), inset 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+
+    /* Sweeping light reflection */
+    .seal-active-glow::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-25deg);
+      animation: seal-shimmer 3s infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes seal-shimmer {
+      0% { left: -100%; }
+      20% { left: 200%; }
+      100% { left: 200%; }
+    }
+
+    /* Ornate Royal Card */
+    .royal-card {
+      background: linear-gradient(180deg, rgba(74, 14, 23, 0.92) 0%, rgba(43, 6, 12, 0.96) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(212, 175, 55, 0.08);
+      position: relative;
+    }
+
+    .royal-card::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px dashed rgba(212, 175, 55, 0.25);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    /* Subtle Mandala / Jaali Background Pattern */
+    .jaali-bg {
+      background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px),
+                        radial-gradient(rgba(212, 175, 55, 0.08) 1px, #380911 1px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+    }
+
+    /* Gate Opening Animation */
+    /* 
+    #splash-gate {
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.1s ease;
+    }
+    #splash-gate.gate-open {
+      transform: scale(1.12);
+      opacity: 0;
+      pointer-events: none;
+    }
+    */
+    /* Gate Opening Animation - 3D Envelope Flap */
+    /* Gate Opening Animation - Royal Curtains Split */
+    #splash-gate {
+      transition: visibility 1.6s;
+    }
+    
+    #left-curtain, #right-curtain {
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s; /* 0.3s delay so seal fades first */
+    }
+    
+    #gate-content {
+      transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* When the Javascript adds the .gate-open class: */
+    #splash-gate.gate-open {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    
+    #splash-gate.gate-open #left-curtain {
+      transform: translateX(-100%);
+    }
+    
+    #splash-gate.gate-open #right-curtain {
+      transform: translateX(100%);
+    }
+    
+    #splash-gate.gate-open #gate-content {
+      opacity: 0;
+      transform: scale(1.2); /* The seal & text zoom slightly toward the user before fading */
+    }
+
+    /* Scratch Canvas Cursor */
+    #scratch-canvas {
+      touch-action: none;
+      cursor: grab;
+    }
+    #scratch-canvas:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body class="overflow-hidden min-h-screen flex justify-center bg-[#1c0408] selection:bg-[#D4AF37] selection:text-[#2B060C]">
+
+  <!-- GLOBAL LOADER -->
+  <div id="global-loader" class="fixed inset-0 z-[60] bg-[#1a0307] flex flex-col items-center justify-center transition-opacity duration-700">
+    <!-- Gold Spinning Ring -->
+    <div class="w-14 h-14 border-4 border-[#D4AF37]/20 border-t-[#D4AF37] rounded-full animate-spin mb-5"></div>
+    <!-- Pulsing Royal Text -->
+    <p class="font-serif-luxury italic text-amber-200 text-lg tracking-widest animate-pulse">
+      Fetching Your Invitation...
+    </p>
+  </div>
+
+  <!-- Desktop Ambient Left/Right Royal Frame (Visible on Laptops/Desktops) -->
+  <div class="hidden lg:flex fixed inset-0 pointer-events-none justify-between items-center px-12 z-0 opacity-40">
+    <div class="text-center max-w-xs">
+      <p class="font-royal text-3xl gold-gradient-text tracking-widest" id="desktop-side-monogram">D & K</p>
+      <p class="font-serif-luxury italic text-amber-200/80 text-xl mt-2">Royal Wedding Celebration</p>
+      <div class="w-24 h-[1px] bg-amber-500/40 mx-auto my-4"></div>
+      <p class="text-xs uppercase tracking-[0.3em] text-amber-100/60">28 • 01 • 2027</p>
+    </div>
+    <div class="text-center max-w-xs">
+      <p class="font-serif-luxury italic text-amber-200/80 text-xl">"Two families blend, two hearts unite, forever begins"</p>
+      <div class="w-24 h-[1px] bg-amber-500/40 mx-auto my-4"></div>
+      <p class="text-xs uppercase tracking-[0.3em] text-amber-100/60" id="desktop-side-hashtag">#DevKiKrishna</p>
+    </div>
+  </div>
+
+<!-- TOUCH TO OPEN: ROYAL CURTAINS -->
+  <div id="splash-gate" class="fixed inset-0 z-50 overflow-hidden pointer-events-auto">
+    
+    <!-- Left Curtain -->
+    <div id="left-curtain" class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[#1a0307] via-[#2B060C] to-[#3d0a12] z-0 overflow-hidden">
+      <!-- Texture overlay -->
+      <div class="absolute inset-0 jaali-bg opacity-40"></div>
+    </div>
+
+    <!-- Right Curtain -->
+    <div id="right-curtain" class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-[#1a0307] via-[#2B060C] to-[#3d0a12] z-0 overflow-hidden">
+      <!-- Texture overlay -->
+      <div class="absolute inset-0 jaali-bg opacity-40"></div>
+    </div>
+
+    <!-- Envelope Content (Seal & Text) -->
+    <div id="gate-content" class="relative z-10 flex flex-col items-center justify-between h-full py-12 px-6 text-center">
+      
+      <!-- Top Arch Ornament (Stays pinned to the top) -->
+      <div class="w-full max-w-md flex flex-col items-center">
+        <p class="text-amber-300/90 font-serif-luxury italic text-lg tracking-widest">|| Shree Ganeshaya Namah ||</p>
+        <div class="w-40 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mt-4 mb-2"></div><br>
+        <p class="text-[11px] uppercase tracking-[0.35em] text-amber-200/70 mb-5 leading-relaxed px-4">Jadeja Family Cordially Invites You To The Marriage of</p>
+      </div>
+
+      <!-- Center Wax Seal & Couple Crest (Groups text tightly together) -->
+      <div class="my-auto flex flex-col items-center max-w-sm w-full pt-4">
+          
+        <!-- NAMES: Increased bottom margin (mb-12) for more space before the guest badge -->
+        <div class="mb-12">
+          <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-groom">Divyarajsinh</p>
+          <p class="font-serif-luxury italic text-amber-300 text-xl my-1.5">&</p>
+          <p class="font-royal text-2xl sm:text-3xl gold-gradient-text leading-snug" id="gate-bride">Krishnaba</p>
+        </div>
+
+        <!-- Personalized Preview Badge -->
+        <div id="gate-guest-preview" class="mb-10 w-full max-w-[280px] px-5 py-3.5 rounded-xl bg-black/50 border border-[#D4AF37]/40 backdrop-blur-sm shadow-lg">
+          <p class="text-xs uppercase tracking-[0.25em] text-amber-200/70">Cordially Inviting</p>
+          <p id="gate-guest-name" class="font-serif-luxury text-xl text-amber-100 font-semibold mt-1">Our Esteemed Guest</p>
+        </div>
+
+        <!-- Touch to Open Wax Seal Button -->
+        <button id="open-invite-btn" onclick="openInvitation()" class="seal-active-glow overflow-hidden w-32 h-32 rounded-full gold-foil-bg text-[#2B060C] flex flex-col items-center justify-center border-4 border-[#FDFBF7]/60 transition active:scale-95">
+          <span class="font-royal text-2xl font-bold tracking-wider relative z-10" id="seal-monogram">D&K</span>
+          <span class="text-[10px] font-bold uppercase tracking-[0.18em] mt-1 border-t border-[#2B060C]/40 pt-1 relative z-10">Tap to Open</span>
+        </button>
+        <p class="text-xs text-amber-200/60 mt-4 italic font-serif-luxury">Tap the seal to unroll your invitation!</p>
+      </div>
+
+      <!-- Bottom Ornament (Stays pinned to the bottom) -->
+      <div class="w-full max-w-md">
+        <div class="w-48 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent mx-auto mb-3"></div>
+        <p class="text-[11px] uppercase tracking-[0.25em] text-amber-200/50">Jamnagar • Bhavnagar</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating Audio Mute/Unmute Button -->
+  <button id="music-toggle" onclick="toggleMusic()" class="hidden fixed bottom-5 right-5 z-40 w-11 h-11 rounded-full royal-card flex items-center justify-center text-amber-300 shadow-lg border border-[#D4AF37]" title="Toggle Music">
+    <span id="music-icon">🔊</span>
+  </button>
+  <audio id="bg-music" loop preload="auto"></audio>
+
+  <!-- MAIN INVITATION CONTAINER (Mobile-first width on all screens, centered on laptop) -->
+  <main class="w-full max-w-[480px] min-h-screen jaali-bg shadow-[0_0_80px_rgba(0,0,0,0.9)] border-x border-[#D4AF37]/30 relative z-10">
+
+    <!-- 1. HERO & ROYAL INVOCATION -->
+    <section class="relative pt-12 pb-10 px-6 text-center border-b border-[#D4AF37]/25 overflow-hidden">
+      <!-- Top Decorative Arch PNG Art -->
+      <div class="mx-auto w-16 h-16 rounded-full border border-[#D4AF37]/50 flex items-center justify-center bg-[#2B060C]/70 p-2 mb-3 shadow-md">
+        <img src="./resources/ganesha_mini.png" alt="Lord Ganesha" class="w-full h-full object-contain filter drop-shadow-[0_0_4px_rgba(212,175,55,0.6)]" />
+      </div>
+      <p class="font-serif-luxury italic text-amber-200 text-lg tracking-wider">|| Shree Ganeshaya Namah ||</p>
+      <p class="font-serif-luxury italic text-amber-100/75 text-sm mt-1 max-w-xs mx-auto">
+        "Vakratunda Mahakaya Suryakoti Samaprabha, Nirvighnam Kuru Me Deva Sarva-Kaaryeshu Sarvada"
+      </p>
+
+      <!-- Personalized Guest Scroll Card -->
+      <div id="guest-welcome-banner" class="royal-card rounded-2xl p-5 mt-7 mb-7">
+        <p class="text-[11px] uppercase tracking-[0.28em] text-amber-300/80">Invitation</p>
+        <!-- Hidden automatically for 'gen*' codes -->
+        <h2 id="guest-display-name" class="font-serif-luxury text-2xl sm:text-3xl font-bold gold-gradient-text mt-1">
+          Valued Guest
+        </h2>
+        <p id="guest-pax-badge" class="inline-block mt-2 px-4 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 text-xs uppercase tracking-[0.2em] text-amber-200">
+          Reserved for 2 Guests
+        </p>
+      </div>
+
+      <!-- Parents & Couple Names -->
+      <p class="text-xs uppercase tracking-[0.22em] text-amber-200/70">With the blessings of Kuldevi Momai Mataji and Dadabapu</p>
+
+      <div class="mt-6 space-y-2">
+        <h1 id="groom-full-name" class="font-royal text-2xl sm:text-3xl gold-gradient-text tracking-wide">
+          Divyarajsinh J. Jadeja
+        </h1>
+        <p id="groom-parents" class="font-serif-luxury text-base text-amber-100/85 leading-relaxed px-2">
+          Son of Smt. Nileshwariba Jayeshsinh Jadeja & Jayeshsinh Bharatsinhji Jadeja
+        </p>
+      </div>
+
+      <div class="my-5 flex items-center justify-center gap-4">
+        <div class="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#D4AF37]"></div>
+        <span class="font-serif-luxury italic text-2xl text-amber-300">weds</span>
+        <div class="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#D4AF37]"></div>
+      </div>
+
+      <div class="space-y-2">
+        <h1 id="bride-full-name" class="font-royal text-2xl sm:text-3xl gold-gradient-text tracking-wide">
+          Krishnaba Rana
+        </h1>
+        <p id="bride-parents" class="font-serif-luxury text-base text-amber-100/85 leading-relaxed px-2">
+          Daughter of Smt. Jyotiba Mahipalsinh Rana & Mahipalsinh Jasubha Rana
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. SCRATCH TO REVEAL SAVE THE DATE -->
+    <section class="py-10 px-6 text-center border-b border-[#D4AF37]/25">
+      <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Auspicious Muhurat</p>
+      <h2 class="font-royal text-2xl gold-gradient-text mt-1">Save The Date</h2>
+      <p class="font-serif-luxury italic text-amber-100/80 text-base mt-1">
+        Scratch the gold seal below to reveal the date
+      </p>
+
+      <!-- Scratch Container -->
+      <div class="relative w-72 h-44 mx-auto mt-6 rounded-2xl overflow-hidden royal-card flex flex-col items-center justify-center select-none shadow-2xl">
+        <!-- Revealed Content Underneath -->
+        <div class="p-4 text-center z-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-amber-300" id="reveal-day">Thursday</p>
+          <p class="font-royal text-2xl sm:text-3xl gold-gradient-text font-bold my-1" id="reveal-date">28th January 2027</p>
+          <p class="font-serif-luxury text-base text-amber-100/90" id="reveal-time">Muhurat: 7:30 PM Onwards</p>
+        </div>
+
+        <!-- Interactive Scratch Layer -->
+        <canvas id="scratch-canvas" width="288" height="176" class="absolute inset-0 z-10 w-full h-full transition-opacity duration-700"></canvas>
+      </div>
+
+      <!-- Save to Calendar Buttons -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <a id="google-cal-btn" href="#" target="_blank" rel="noopener"
+           class="px-4 py-2.5 rounded-xl gold-foil-bg text-[#2B060C] font-semibold text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition">
+          📅 Add to Google Calendar
+        </a>
+        <button onclick="downloadICS()"
+           class="px-4 py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/60 text-amber-200 font-semibold text-xs uppercase tracking-wider hover:bg-[#D4AF37]/20 transition">
+          📲 Apple / Outlook (.ics)
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. LIVE COUNTDOWN SECTION -->
+    <!-- 3. LIVE COUNTDOWN SECTION -->
+    <section id="countdown-section" class="hidden opacity-0 transition-opacity duration-1000 py-10 px-6 text-center border-b border-[#D4AF37]/25">
+      <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">A Tapestry of Two Hearts Begins...</p>
+      <h2 class="font-royal text-xl gold-gradient-text mt-1">Counting Every Moment</h2>
+
+      <div class="grid grid-cols-4 gap-2.5 mt-6">
+        <div class="royal-card rounded-xl py-3 px-2">
+          <span id="cd-days" class="font-royal text-2xl sm:text-3xl gold-gradient-text block">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-amber-200/70">Days</span>
+        </div>
+        <div class="royal-card rounded-xl py-3 px-2">
+          <span id="cd-hours" class="font-royal text-2xl sm:text-3xl gold-gradient-text block">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-amber-200/70">Hours</span>
+        </div>
+        <div class="royal-card rounded-xl py-3 px-2">
+          <span id="cd-mins" class="font-royal text-2xl sm:text-3xl gold-gradient-text block">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-amber-200/70">Minutes</span>
+        </div>
+        <div class="royal-card rounded-xl py-3 px-2">
+          <span id="cd-secs" class="font-royal text-2xl sm:text-3xl gold-gradient-text block">00</span>
+          <span class="text-[10px] uppercase tracking-widest text-amber-200/70">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PROGRAM TIMELINE (EVENTS WITH LOCATION PINS) -->
+    <section class="py-10 px-6 border-b border-[#D4AF37]/25">
+      <div class="text-center mb-8">
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Shubh Prasang</p>
+        <h2 class="font-royal text-2xl gold-gradient-text mt-1">Wedding Itinerary</h2>
+        <p class="font-serif-luxury italic text-amber-100/80 text-base mt-1">
+          Join us across the joyous celebrations
+        </p>
+      </div>
+
+      <div id="events-timeline" class="space-y-5 relative">
+        <!-- Populated dynamically from config.js -->
+      </div>
+    </section>
+
+    <!-- 5. ACCOMMODATION SECTION (SHOWN ONLY WHEN ACCOMMODATION == YES) -->
+    <section id="accommodation-section" class="hidden py-10 px-6 border-b border-[#D4AF37]/25">
+      <div class="royal-card rounded-2xl p-6 text-center">
+        <div class="w-12 h-12 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/50 flex items-center justify-center mx-auto mb-3">
+          <span class="text-2xl">🏨</span>
+        </div>
+        <p class="text-xs uppercase tracking-[0.28em] text-amber-300/80">Exclusive Guest Privileges</p>
+        <h2 id="acc-title" class="font-royal text-xl gold-gradient-text mt-1">Royal Hospitality & Stay</h2>
+        <p id="acc-subtitle" class="font-serif-luxury italic text-amber-100/85 text-base mt-1"></p>
+
+        <div class="my-4 p-4 rounded-xl bg-black/30 border border-[#D4AF37]/30">
+          <p id="acc-hotel" class="font-serif-luxury text-2xl font-bold text-amber-200"></p>
+          <p id="acc-address" class="text-xs text-amber-100/75 mt-1"></p>
+          <p id="acc-note" class="text-xs italic text-amber-300/80 mt-3"></p>
+        </div>
+
+        <a id="acc-map-btn" href="#" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl gold-foil-bg text-[#2B060C] font-semibold text-xs uppercase tracking-wider shadow-md">
+          📍 View Hotel on Google Maps
+        </a>
+      </div>
+    </section>
+
+    <!-- 6. AUTO-SLIDING PHOTO GALLERY -->
+    <section class="py-10 px-6 border-b border-[#D4AF37]/25">
+      <div class="text-center mb-6">
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Glimpses of Love</p>
+        <h2 class="font-royal text-2xl gold-gradient-text mt-1">Moments-Together</h2>
+      </div>
+
+      <div class="relative royal-card rounded-2xl overflow-hidden p-2">
+        <div id="carousel-track" class="relative h-80 w-full overflow-hidden rounded-xl">
+          <!-- Slides injected from config.js -->
+        </div>
+
+        <!-- Prev / Next Controls -->
+        <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-[#D4AF37]/60 text-amber-200 flex items-center justify-center z-20">
+          ‹
+        </button>
+        <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 border border-[#D4AF37]/60 text-amber-200 flex items-center justify-center z-20">
+          ›
+        </button>
+
+        <!-- Dots -->
+        <div id="carousel-dots" class="flex justify-center gap-2 mt-3 pb-1"></div>
+      </div>
+    </section>
+
+    <!-- 7. EVENT-WISE RSVP & BLESSINGS -->
+    <section class="py-10 px-6">
+      <div class="text-center mb-6">
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-300/80">Awaiting Your Presence</p>
+        <h2 class="font-royal text-2xl gold-gradient-text mt-1">R.S.V.P.</h2>
+        <p class="font-serif-luxury italic text-amber-100/80 text-base mt-1">
+          Kindly confirm your presence for each celebration
+        </p>
+      </div>
+
+      <form id="rsvp-form" onsubmit="submitRSVP(event)" class="royal-card rounded-2xl p-6 space-y-5">
+        <!-- Read-only Guest Name Banner for Named Codes -->
+        <div id="rsvp-known-guest-box" class="p-3.5 rounded-xl bg-black/30 border border-[#D4AF37]/30">
+          <p class="text-[10px] uppercase tracking-widest text-amber-300/70">Responding On Behalf Of</p>
+          <p id="rsvp-known-guest-name" class="font-serif-luxury text-xl text-amber-100 font-semibold mt-0.5"></p>
+        </div>
+
+        <!-- Conditional Name Input Field -->
+        <div id="rsvp-gen-name-box" class="hidden">
+          <label for="rsvp-custom-name" class="block text-xs uppercase tracking-wider text-amber-200 mb-1.5">
+            Your Full Name & Family <span class="text-amber-400">*</span>
+          </label>
+          <input type="text" id="rsvp-custom-name" placeholder="e.g., Rajendrasinh Jadeja & Family"
+                 class="w-full px-4 py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/50 text-amber-100 placeholder-amber-200/30 focus:outline-none focus:border-[#D4AF37] text-sm" />
+        </div>
+
+        <!-- NEW: Attendance Toggle (Yes / No) -->
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-amber-200 mb-2">
+            Will You Be Attending?
+          </label>
+          <div class="flex gap-3">
+            <label class="flex-1 flex items-center justify-center py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/40 cursor-pointer transition has-[:checked]:bg-[#D4AF37]/20 has-[:checked]:border-[#D4AF37]">
+              <input type="radio" name="rsvp_attending" value="yes" checked class="hidden" onchange="toggleRsvpDetails(true)" />
+              <span class="text-sm font-semibold text-amber-100 uppercase tracking-wider">Yes, Joyfully</span>
+            </label>
+            <label class="flex-1 flex items-center justify-center py-2.5 rounded-xl bg-black/40 border border-[#D4AF37]/40 cursor-pointer transition has-[:checked]:bg-[#D4AF37]/20 has-[:checked]:border-[#D4AF37]">
+              <input type="radio" name="rsvp_attending" value="no" class="hidden" onchange="toggleRsvpDetails(false)" />
+              <span class="text-sm font-semibold text-amber-100 uppercase tracking-wider">Regretfully No</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- WRAPPER: Collapses if 'No' is selected -->
+        <div id="rsvp-details-container" class="space-y-5 transition-all duration-300 origin-top">
+          <!-- Number of Pax Dropdown -->
+          <div>
+            <label for="rsvp-pax" class="block text-xs uppercase tracking-wider text-amber-200 mb-1.5">
+              Number of Guests Attending
+            </label>
+            <select id="rsvp-pax" class="w-full px-4 py-2.5 rounded-xl bg-[#2B060C] border border-[#D4AF37]/50 text-amber-100 focus:outline-none focus:border-[#D4AF37] text-sm">
+              <!-- Options 1-10 populated via JS -->
+            </select>
+          </div>
+
+          <!-- Event-Wise Selection Checkboxes -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-amber-200 mb-2">
+              Select Events You Will Attend
+            </label>
+            <div id="rsvp-events-list" class="space-y-2.5">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Message / Wishes for the Couple (Always Visible) -->
+        <div>
+          <label for="rsvp-message" class="block text-xs uppercase tracking-wider text-amber-200 mb-1.5">
+            Blessings & Message for the Couple
+          </label>
+          <textarea id="rsvp-message" rows="4" placeholder="Share your warm wishes for Divyarajsinh & Krishnaba..."
+                    class="w-full min-h-[120px] px-4 py-3 rounded-xl bg-black/40 border border-[#D4AF37]/50 text-amber-100 placeholder-amber-200/30 focus:outline-none focus:border-[#D4AF37] text-sm resize-y"></textarea>
+        </div>
+
+        <button type="submit" id="rsvp-submit-btn"
+                class="w-full py-3.5 rounded-xl gold-foil-bg text-[#2B060C] font-bold text-xs uppercase tracking-[0.2em] shadow-xl hover:opacity-95 transition">
+          Confirm Your Attendance
+        </button>
+
+        <p id="rsvp-status" class="hidden text-center font-serif-luxury text-lg text-amber-300 pt-2"></p>
+      </form>
+    </section>
+
+    <!-- 8. FOOTER / COMPLIMENTS -->
+    <footer class="pt-6 pb-3 px-6 text-center border-t border-[#D4AF37]/25">
+      <p class="text-xs uppercase tracking-[0.25em] text-amber-300/70" id="footer-compliments">With Best Compliments From</p>
+      <br>
+      <p class="font-serif-luxury text-lg text-amber-100 mt-1" id="footer-family">
+        Jayeshsinh Bharatsinhji Jadeja,
+        Nileshwariba Jayeshsinh Jadeja,
+        Chaitanyarajsinh Jayeshsinh Jadeja
+        &
+        Entire Jadeja Parivar
+      </p>
+      <br><br>
+      <p class="font-royal text-2xl gold-gradient-text mt-5" id="footer-monogram">D & K</p>
+      <p class="text-[11px] uppercase tracking-[0.3em] text-amber-200/50 mt-1" id="footer-hashtag">#DevKiKrishna</p>
+
+      <!-- Developer Credit (Pushed to extreme bottom) -->
+      <div class="mt-28">
+        <p class="text-[9px] uppercase tracking-[0.2em] text-amber-100/40 flex items-center justify-center gap-1.5">
+          Created with <span class="text-white/60 text-[10px]">🤍</span> by Kartavya Technologies Pvt. Ltd.
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Global State
+    let currentGuest = {
+      code: "gen1",
+      names: "",
+      mobile: "",
+      pax: 2,
+      accommodation: "No",
+      isGeneric: true
+    };
+    let currentSlide = 0;
+    let slideInterval = null;
+    let isMusicPlaying = false;
+
+    // Aggressively prevent all scrolling actions
+    function preventScroll(e) {
+      e.preventDefault();
+    }
+
+    // Initialize Page
+    document.addEventListener("DOMContentLoaded", async () => {
+
+      // Lock screen from rubber-band scrolling
+      window.addEventListener('touchmove', preventScroll, { passive: false });
+      window.addEventListener('wheel', preventScroll, { passive: false });
+
+      applyStaticConfig();
+      initPaxDropdown();
+      
+      initGallery();
+      initScratchCard();
+      initCountdown();
+      setupGoogleCalendarLink();
+
+      // 1. Fetch the exact guest data from Google Sheets FIRST
+      await loadGuestPersonalization();
+      
+      // 2. NOW render the events (skipping events marked 'No')
+      renderTimelineAndRsvpEvents();
+
+      // 3. REMOVE LOADER gracefully once everything is ready
+      const loader = document.getElementById("global-loader");
+      loader.classList.add("opacity-0");
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 700); // Matches the duration-700 CSS transition
+    });
+
+    function applyStaticConfig() {
+      const c = WEDDING_CONFIG;
+      document.getElementById("desktop-side-monogram").textContent = c.couple.monogram;
+      document.getElementById("desktop-side-hashtag").textContent = c.couple.hashtag;
+      document.getElementById("seal-monogram").textContent = c.couple.monogram.replace(/\s+/g, "");
+      document.getElementById("gate-groom").textContent = c.couple.groom.shortName;
+      document.getElementById("gate-bride").textContent = c.couple.bride.shortName;
+
+      document.getElementById("groom-full-name").textContent = c.couple.groom.name;
+      document.getElementById("groom-parents").innerHTML = c.couple.groom.parents;
+      document.getElementById("bride-full-name").textContent = c.couple.bride.name;
+      document.getElementById("bride-parents").innerHTML = c.couple.bride.parents;
+
+      document.getElementById("reveal-day").textContent = c.weddingDate.dayOfWeek;
+      document.getElementById("reveal-date").textContent = c.weddingDate.displayDate;
+      document.getElementById("reveal-time").textContent = "Muhurat: " + c.weddingDate.muhuratTime;
+
+      // Accommodation content
+      document.getElementById("acc-title").textContent = c.accommodation.title;
+      document.getElementById("acc-subtitle").textContent = c.accommodation.subtitle;
+      document.getElementById("acc-hotel").textContent = c.accommodation.hotelName;
+      document.getElementById("acc-address").textContent = c.accommodation.address;
+      document.getElementById("acc-note").textContent = c.accommodation.checkInNote;
+      document.getElementById("acc-map-btn").href = c.accommodation.mapUrl;
+
+      // Footer
+      document.getElementById("footer-compliments").textContent = c.hostsFooter.complimentsFrom;
+      document.getElementById("footer-family").innerHTML = c.hostsFooter.familyLine;
+      document.getElementById("footer-monogram").textContent = c.couple.monogram;
+      document.getElementById("footer-hashtag").textContent = c.couple.hashtag;
+
+      // Audio
+      if (c.backgroundMusicUrl) {
+        document.getElementById("bg-music").src = c.backgroundMusicUrl;
+      }
+    }
+
+    // Parse URL & Fetch Guest Row
+    async function loadGuestPersonalization() {
+      const params = new URLSearchParams(window.location.search);
+      const rawCode = (params.get("code") || params.get("inv") || "gen2").trim();
+      const codeLower = rawCode.toLowerCase();
+      const isGenCode = codeLower.startsWith("gen");
+
+      let matchedRow = null;
+
+      // 1. Try TSV if configured
+      if (WEDDING_CONFIG.dataSource === "tsv") {
+        try {
+          const res = await fetch(WEDDING_CONFIG.tsvFilePath);
+          if (res.ok) {
+            const tsvText = await res.text();
+            const rows = parseTSV(tsvText);
+            matchedRow = rows.find(r => r.code.toLowerCase() === codeLower);
+          }
+        } catch (err) {
+          console.warn("TSV fetch fallback to config fallbackGuests:", err);
+        }
+      }
+
+      // 2. Try Google Sheet Apps Script GET if configured
+      if (!matchedRow && WEDDING_CONFIG.dataSource === "google_sheet" && !WEDDING_CONFIG.googleAppsScriptUrl.includes("YOUR_SCRIPT")) {
+        try {
+          const url = `${WEDDING_CONFIG.googleAppsScriptUrl}?code=${encodeURIComponent(rawCode)}`;
+          const res = await fetch(url);
+          const data = await res.json();
+          if (data && data.found) {
+            matchedRow = data.guest;
+          }
+        } catch (err) {
+          console.warn("Google Sheet lookup failed, checking fallbackGuests:", err);
+        }
+      }
+
+      // 3. Fallback to config sample rows
+      if (!matchedRow) {
+        matchedRow = WEDDING_CONFIG.fallbackGuests.find(g => g.code.toLowerCase() === codeLower);
+      }
+
+      // 4. If code is like 'gen4' and not explicitly in fallback, extract trailing number as pax
+      if (!matchedRow && isGenCode) {
+        const trailingNum = parseInt(codeLower.replace("gen", ""), 10);
+        matchedRow = {
+          code: rawCode,
+          names: "",
+          mobile: "",
+          pax: !isNaN(trailingNum) && trailingNum >= 1 && trailingNum <= 10 ? trailingNum : 2,
+          accommodation: "No"
+        };
+      }
+
+      if (matchedRow) {
+        currentGuest = {
+          code: matchedRow.code || rawCode,
+          names: matchedRow.names || "",
+          mobile: matchedRow.mobile || "",
+          pax: parseInt(matchedRow.pax, 10) || 1,
+          accommodation: (matchedRow.accommodation || "No").trim(),
+          allowedEvents: matchedRow.allowedEvents || { mandap_mahurat: true, sangeet: true, haldi: true, procession: true, wedding: true },
+          isGeneric: isGenCode
+        };
+      } else {
+        // Fallback for completely unknown codes
+        currentGuest = { 
+          code: rawCode, names: "", mobile: "", pax: 2, accommodation: "No", isGeneric: true,
+          allowedEvents: { mandap_mahurat: true, sangeet: true, haldi: true, procession: true, wedding: true }
+        };
+      }
+
+      renderGuestPersonalization();
+    }
+
+    function parseTSV(tsvText) {
+      const lines = tsvText.trim().split(/\r?\n/);
+      if (lines.length < 2) return [];
+      return lines.slice(1).map(line => {
+        const cols = line.split("\t");
+        return {
+          code: (cols[0] || "").trim(),
+          names: (cols[1] || "").trim(),
+          mobile: (cols[2] || "").trim(),
+          pax: parseInt((cols[3] || "1").trim(), 10) || 1,
+          accommodation: (cols[4] || "No").trim(),
+          allowedEvents: {
+            mandap_mahurat: (cols[5] || "Yes").trim().toLowerCase() === "yes",
+            sangeet: (cols[6] || "Yes").trim().toLowerCase() === "yes",
+            haldi: (cols[7] || "Yes").trim().toLowerCase() === "yes",
+            procession: (cols[8] || "Yes").trim().toLowerCase() === "yes",
+            wedding: (cols[9] || "Yes").trim().toLowerCase() === "yes"
+          }
+        };
+      });
+    }
+
+    function renderGuestPersonalization() {
+      const gateName = document.getElementById("gate-guest-name");
+      const displayName = document.getElementById("guest-display-name");
+      const paxBadge = document.getElementById("guest-pax-badge");
+      const knownGuestBox = document.getElementById("rsvp-known-guest-box");
+      const knownGuestName = document.getElementById("rsvp-known-guest-name");
+      const genNameBox = document.getElementById("rsvp-gen-name-box");
+      const genNameInput = document.getElementById("rsvp-custom-name");
+
+      const paxLabel = currentGuest.pax === 1 ? "Reserved for 1 Guest" : `Reserved for ${currentGuest.pax} Guests`;
+      paxBadge.textContent = paxLabel;
+
+      // Rule: If code begins with 'gen', only consider number of pax; no invitee names shown
+      if (currentGuest.isGeneric || !currentGuest.names) {
+        // gateName.textContent = `You & Your Family (${currentGuest.pax} ${currentGuest.pax === 1 ? 'Seat' : 'Seats'})`;
+        gateName.textContent = `You & Your Family`;
+        displayName.classList.add("hidden");
+        knownGuestBox.classList.add("hidden");
+        genNameBox.classList.remove("hidden");
+        genNameInput.required = true;
+      } else {
+        gateName.textContent = currentGuest.names;
+        displayName.textContent = currentGuest.names;
+        displayName.classList.remove("hidden");
+        knownGuestName.textContent = currentGuest.names;
+        knownGuestBox.classList.remove("hidden");
+        genNameBox.classList.add("hidden");
+        genNameInput.required = false;
+      }
+
+      // Pre-select Pax Dropdown (clamped 1-10)
+      const clampedPax = Math.min(10, Math.max(1, currentGuest.pax));
+      document.getElementById("rsvp-pax").value = String(clampedPax);
+
+      // Conditional Accommodation Section (Only show if Accommodation == Yes)
+      const accSection = document.getElementById("accommodation-section");
+      if (currentGuest.accommodation.toLowerCase() === "yes") {
+        accSection.classList.remove("hidden");
+      } else {
+        accSection.classList.add("hidden");
+      }
+    }
+
+    // Touch to Open Gate
+    function openInvitation() {
+      const gate = document.getElementById("splash-gate");
+      gate.classList.add("gate-open");
+
+      // 1. Remove the aggressive scroll locks
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('wheel', preventScroll);
+      
+      // 2. Ensure page is at the very top and remove overflow hidden
+      document.body.classList.remove("overflow-hidden");
+      window.scrollTo(0, 0);
+
+      // 3. Attempt Fullscreen (Works on Android/Desktop, ignored gracefully by iOS)
+      const docEl = document.documentElement;
+      try {
+        if (docEl.requestFullscreen) {
+          docEl.requestFullscreen().catch(() => {});
+        } else if (docEl.webkitRequestFullscreen) { /* Safari */
+          docEl.webkitRequestFullscreen();
+        }
+      } catch (err) {
+        console.log("Fullscreen API blocked or unsupported.");
+      }
+
+      // 4. Play Audio
+      const audio = document.getElementById("bg-music");
+      const musicBtn = document.getElementById("music-toggle");
+      if (WEDDING_CONFIG.backgroundMusicUrl) {
+        musicBtn.classList.remove("hidden");
+        audio.play().then(() => {
+          isMusicPlaying = true;
+          document.getElementById("music-icon").textContent = "🔊";
+        }).catch(() => {
+          isMusicPlaying = false;
+          document.getElementById("music-icon").textContent = "🔇";
+        });
+      }
+    }
+
+    function toggleMusic() {
+      const audio = document.getElementById("bg-music");
+      const icon = document.getElementById("music-icon");
+      if (audio.paused) {
+        audio.play();
+        icon.textContent = "🔊";
+        isMusicPlaying = true; // Track that user wants music ON
+      } else {
+        audio.pause();
+        icon.textContent = "🔇";
+        isMusicPlaying = false; // Track that user wants music OFF
+      }
+    }
+
+    // Render Program Timeline & Event-Wise RSVP Checkboxes
+    function renderTimelineAndRsvpEvents() {
+      const timelineContainer = document.getElementById("events-timeline");
+      const rsvpEventsContainer = document.getElementById("rsvp-events-list");
+      timelineContainer.innerHTML = "";
+      rsvpEventsContainer.innerHTML = "";
+
+      WEDDING_CONFIG.events.forEach(ev => {
+        // NEW LOGIC: Skip this event entirely if it is marked "No" for the current guest
+        if (currentGuest.allowedEvents && currentGuest.allowedEvents[ev.id] === false) {
+          return;
+        }
+
+        // 1. Timeline Card
+        const card = document.createElement("div");
+        card.className = "royal-card rounded-2xl p-5 text-left transition hover:border-[#D4AF37]";
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <span class="text-xs uppercase tracking-[0.22em] text-amber-300/80">${ev.date}</span>
+              <h3 class="font-royal text-xl gold-gradient-text mt-0.5">${ev.title}</h3>
+              <p class="font-serif-luxury italic text-amber-200/90 text-base">${ev.time}</p>
+            </div>
+            <div class="w-11 h-11 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/40 flex items-center justify-center text-xl shrink-0">
+              ${ev.icon}
+            </div>
+          </div>
+          <div class="mt-3 pt-3 border-t border-[#D4AF37]/20 flex items-center justify-between gap-3">
+            <div class="text-xs text-amber-100/80">
+              <p class="font-semibold text-amber-200">${ev.venueName}</p>
+              <p>${ev.address}</p>
+            </div>
+            <a href="${ev.mapUrl}" target="_blank" rel="noopener"
+               class="shrink-0 px-3.5 py-2 rounded-xl bg-[#D4AF37]/20 border border-[#D4AF37]/60 text-amber-200 text-xs font-semibold hover:bg-[#D4AF37] hover:text-[#2B060C] transition">
+              📍 Map Pin
+            </a>
+          </div>
+        `;
+        timelineContainer.appendChild(card);
+
+        // 2. RSVP Checkbox Item
+        const label = document.createElement("label");
+        label.className = "flex items-start gap-3 p-3.5 rounded-xl bg-black/35 border border-[#D4AF37]/35 cursor-pointer hover:border-[#D4AF37] transition";
+        label.innerHTML = `
+          <input type="checkbox" name="rsvp_event" value="${ev.title} (${ev.date})" checked
+                 class="mt-1 w-4 h-4 accent-[#D4AF37] rounded cursor-pointer" />
+          <div class="text-xs leading-relaxed">
+            <p class="font-semibold text-amber-200 text-sm">${ev.title} — <span class="text-amber-300">${ev.date}</span></p>
+            <p class="text-amber-100/75">${ev.time}</p>
+            <p class="text-amber-100/60">📍 ${ev.venueName}, ${ev.address}</p>
+          </div>
+        `;
+        rsvpEventsContainer.appendChild(label);
+      });
+    }
+
+    function initPaxDropdown() {
+      const sel = document.getElementById("rsvp-pax");
+      sel.innerHTML = "";
+      for (let i = 1; i <= 10; i++) {
+        const opt = document.createElement("option");
+        opt.value = String(i);
+        opt.textContent = i === 1 ? "1 Guest" : `${i} Guests`;
+        sel.appendChild(opt);
+      }
+    }
+
+    // Scratch-to-Reveal HTML5 Canvas (High-Res with Falling Glitter)
+    function initScratchCard() {
+      const canvas = document.getElementById("scratch-canvas");
+      const ctx = canvas.getContext("2d");
+      
+      // 1. High-DPI Canvas Scaling (Fixes Blurry Text)
+      const dpr = window.devicePixelRatio || 1;
+      const cssWidth = 288;
+      const cssHeight = 176;
+      
+      canvas.width = cssWidth * dpr;
+      canvas.height = cssHeight * dpr;
+      canvas.style.width = cssWidth + "px";
+      canvas.style.height = cssHeight + "px";
+      ctx.scale(dpr, dpr);
+
+      let isDrawing = false;
+      let isRevealed = false;
+
+      // 2. Setup Transparent Glitter Overlay Canvas
+      const container = canvas.parentElement;
+      const glitterCanvas = document.createElement("canvas");
+      glitterCanvas.width = cssWidth * dpr;
+      glitterCanvas.height = cssHeight * dpr;
+      glitterCanvas.style.width = cssWidth + "px";
+      glitterCanvas.style.height = cssHeight + "px";
+      glitterCanvas.className = "absolute inset-0 z-20 pointer-events-none transition-opacity duration-700";
+      container.appendChild(glitterCanvas);
+      
+      const gCtx = glitterCanvas.getContext("2d");
+      gCtx.scale(dpr, dpr);
+      let particles = [];
+
+      // Paint Highly Reflective Metallic Gold Foil Layer
+      const grad = ctx.createLinearGradient(0, 0, cssWidth, cssHeight);
+      grad.addColorStop(0, "#AA771C");
+      grad.addColorStop(0.15, "#FDFBF7");
+      grad.addColorStop(0.3, "#B38728");
+      grad.addColorStop(0.5, "#FCF6BA");
+      grad.addColorStop(0.65, "#D4AF37");
+      grad.addColorStop(0.85, "#FDFBF7");
+      grad.addColorStop(1, "#8A5A10");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, cssWidth, cssHeight);
+
+      // MATCHING DASHED BORDER (With rounded corners)
+      ctx.strokeStyle = "rgba(74, 14, 23, 0.4)"; // Etched maroon for elegant contrast
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([5, 5]); // Creates the dashed/dotted effect
+      
+      // Draw a rounded rectangle inset by 5px, with a 12px border radius
+      ctx.beginPath();
+      ctx.roundRect(5, 5, cssWidth - 10, cssHeight - 10, 12);
+      ctx.stroke();
+      
+      ctx.setLineDash([]); // Reset line dash so the text below doesn't get dotted
+
+      // Embossed 3D Text Effect
+      ctx.textAlign = "center";
+      ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
+      ctx.font = "bold 17px 'Cinzel Decorative', serif";
+      ctx.fillText("SCRATCH TO REVEAL", cssWidth / 2, cssHeight / 2 - 4);
+      
+      ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
+      ctx.font = "italic 16px 'Cormorant Garamond', serif";
+      ctx.fillText("the Auspicious Date", cssWidth / 2, cssHeight / 2 + 21);
+
+      ctx.fillStyle = "#2B060C";
+      ctx.font = "bold 17px 'Cinzel Decorative', serif";
+      ctx.fillText("SCRATCH TO REVEAL", cssWidth / 2, cssHeight / 2 - 5);
+      
+      ctx.fillStyle = "#4A0E17";
+      ctx.font = "italic 16px 'Cormorant Garamond', serif";
+      ctx.fillText("the Auspicious Date", cssWidth / 2, cssHeight / 2 + 20);
+
+      // 3. Falling Glitter Particle Engine
+      function spawnParticles(x, y) {
+        for(let i = 0; i < 4; i++) {
+          particles.push({
+            x: x + (Math.random() * 30 - 15),
+            y: y + (Math.random() * 30 - 15),
+            vx: (Math.random() - 0.5) * 2,
+            vy: Math.random() * 3 + 1.5,
+            size: Math.random() * 2 + 1,
+            life: 1,
+            decay: Math.random() * 0.04 + 0.02,
+            color: Math.random() > 0.5 ? "#FDFBF7" : "#D4AF37"
+          });
+        }
+      }
+
+      function animateGlitter() {
+        if (isRevealed && particles.length === 0) {
+           glitterCanvas.remove();
+           return;
+        }
+        gCtx.clearRect(0, 0, cssWidth, cssHeight);
+        for (let i = particles.length - 1; i >= 0; i--) {
+          let p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= p.decay;
+          
+          if (p.life <= 0) {
+            particles.splice(i, 1);
+          } else {
+            gCtx.globalAlpha = Math.max(0, p.life);
+            gCtx.fillStyle = p.color;
+            gCtx.beginPath();
+            gCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            gCtx.fill();
+            gCtx.globalAlpha = 1;
+          }
+        }
+        requestAnimationFrame(animateGlitter);
+      }
+      animateGlitter();
+
+      function getCoords(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return {
+          x: (clientX - rect.left) * (cssWidth / rect.width),
+          y: (clientY - rect.top) * (cssHeight / rect.height)
+        };
+      }
+
+      function scratch(e) {
+        if (!isDrawing || isRevealed) return;
+        e.preventDefault();
+        const { x, y } = getCoords(e);
+        
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        ctx.arc(x, y, 24, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Spawn gold dust where the finger rubs
+        spawnParticles(x, y);
+        checkRevealPercentage();
+      }
+
+      function checkRevealPercentage() {
+        const rawWidth = canvas.width;
+        const rawHeight = canvas.height;
+        const imgData = ctx.getImageData(0, 0, rawWidth, rawHeight).data;
+        
+        let transparentPixels = 0;
+        const totalPixels = rawWidth * rawHeight;
+        
+        // Sample every 16th pixel to save CPU
+        for (let i = 3; i < imgData.length; i += 16) {
+          if (imgData[i] < 128) transparentPixels++;
+        }
+        
+        const ratio = transparentPixels / (totalPixels / 4);
+        if (ratio > 0.70) {
+          isRevealed = true;
+          canvas.style.opacity = "0";
+          glitterCanvas.style.opacity = "0";
+
+          // NEW: Smoothly reveal the countdown section
+          const countdownSec = document.getElementById("countdown-section");
+          if (countdownSec) {
+            countdownSec.classList.remove("hidden"); // Remove display: none
+            void countdownSec.offsetWidth;           // Force DOM reflow so transition works
+            countdownSec.classList.remove("opacity-0"); // Trigger the 1-second fade-in
+          }
+
+          setTimeout(() => {
+            canvas.remove();
+            glitterCanvas.remove();
+          }, 700);
+        }
+      }
+
+      canvas.addEventListener("mousedown", (e) => { isDrawing = true; scratch(e); });
+      canvas.addEventListener("mousemove", scratch);
+      window.addEventListener("mouseup", () => { isDrawing = false; });
+
+      canvas.addEventListener("touchstart", (e) => { isDrawing = true; scratch(e); }, { passive: false });
+      canvas.addEventListener("touchmove", scratch, { passive: false });
+      window.addEventListener("touchend", () => { isDrawing = false; });
+    }
+
+    // Live Countdown Timer
+    function initCountdown() {
+      const targetTime = new Date(WEDDING_CONFIG.weddingDate.isoStart).getTime();
+
+      function updateClock() {
+        const now = Date.now();
+        const diff = Math.max(0, targetTime - now);
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / 1000 / 60) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+
+        document.getElementById("cd-days").textContent = String(days).padStart(2, "0");
+        document.getElementById("cd-hours").textContent = String(hours).padStart(2, "0");
+        document.getElementById("cd-mins").textContent = String(mins).padStart(2, "0");
+        document.getElementById("cd-secs").textContent = String(secs).padStart(2, "0");
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+    }
+
+    // Save to Calendar Helpers
+    function toGoogleCalFormat(isoStr) {
+      return new Date(isoStr).toISOString().replace(/-|:|\.\d\d\d/g, "");
+    }
+
+    function setupGoogleCalendarLink() {
+      const w = WEDDING_CONFIG.weddingDate;
+      const dates = `${toGoogleCalFormat(w.isoStart)}/${toGoogleCalFormat(w.isoEnd)}`;
+      const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(w.calendarTitle)}&dates=${dates}&details=${encodeURIComponent(w.calendarDescription)}&location=${encodeURIComponent(w.calendarLocation)}`;
+      document.getElementById("google-cal-btn").href = url;
+    }
+
+    function downloadICS() {
+      const w = WEDDING_CONFIG.weddingDate;
+      const start = toGoogleCalFormat(w.isoStart);
+      const end = toGoogleCalFormat(w.isoEnd);
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "BEGIN:VEVENT",
+        `DTSTART:${start}`,
+        `DTEND:${end}`,
+        `SUMMARY:${w.calendarTitle}`,
+        `DESCRIPTION:${w.calendarDescription}`,
+        `LOCATION:${w.calendarLocation}`,
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Divyarajsinh-Krishnaba-Wedding.ics";
+      link.click();
+    }
+
+    // Auto-Sliding Photo Gallery
+    function initGallery() {
+      const track = document.getElementById("carousel-track");
+      const dots = document.getElementById("carousel-dots");
+      track.innerHTML = "";
+      dots.innerHTML = "";
+
+      WEDDING_CONFIG.gallery.forEach((item, index) => {
+        const slide = document.createElement("div");
+        slide.className = `carousel-slide absolute inset-0 transition-opacity duration-700 ${index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`;
+        slide.innerHTML = `
+          <img src="${item.url}" alt="${item.caption}" class="w-full h-full object-cover rounded-xl" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 text-center">
+            <p class="font-serif-luxury italic text-amber-100 text-lg">${item.caption}</p>
+          </div>
+        `;
+        track.appendChild(slide);
+
+        const dot = document.createElement("button");
+        dot.className = `w-2.5 h-2.5 rounded-full transition ${index === 0 ? "bg-[#D4AF37] w-6" : "bg-[#D4AF37]/40"}`;
+        dot.onclick = () => showSlide(index);
+        dots.appendChild(dot);
+      });
+
+      slideInterval = setInterval(() => changeSlide(1), 3800);
+    }
+
+    function showSlide(index) {
+      const slides = document.querySelectorAll(".carousel-slide");
+      const dots = document.getElementById("carousel-dots").children;
+      if (!slides.length) return;
+
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((s, idx) => {
+        s.className = `carousel-slide absolute inset-0 transition-opacity duration-700 ${idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"}`;
+      });
+      Array.from(dots).forEach((d, idx) => {
+        d.className = `h-2.5 rounded-full transition-all ${idx === currentSlide ? "bg-[#D4AF37] w-6" : "bg-[#D4AF37]/40 w-2.5"}`;
+      });
+    }
+
+    function changeSlide(step) {
+      clearInterval(slideInterval);
+      showSlide(currentSlide + step);
+      slideInterval = setInterval(() => changeSlide(1), 3800);
+    }
+
+    // Toggle RSVP detailed fields based on Yes/No selection
+    function toggleRsvpDetails(isAttending) {
+      const detailsContainer = document.getElementById("rsvp-details-container");
+      if (isAttending) {
+        detailsContainer.classList.remove("hidden");
+        // Ensure checkboxes remain required if they are attending
+      } else {
+        detailsContainer.classList.add("hidden");
+      }
+    }
+
+    // Submit RSVP to Google Sheets via Google Apps Script
+    // Submit RSVP to Google Sheets via Google Apps Script
+    async function submitRSVP(e) {
+      e.preventDefault();
+      const btn = document.getElementById("rsvp-submit-btn");
+      const status = document.getElementById("rsvp-status");
+
+      // Check attendance state
+      const isAttending = document.querySelector('input[name="rsvp_attending"]:checked').value === "yes";
+
+      // Parse fields
+      const customName = document.getElementById("rsvp-custom-name").value.trim();
+      const finalName = currentGuest.isGeneric || !currentGuest.names ? customName : currentGuest.names;
+      const wishes = document.getElementById("rsvp-message").value.trim();
+
+      // Conditional logic based on Yes/No
+      let checkedEventsStr = "Regretfully Unable to Attend";
+      let paxCount = 0;
+
+      if (isAttending) {
+        const checkedEvents = Array.from(document.querySelectorAll('input[name="rsvp_event"]:checked')).map(cb => cb.value);
+        checkedEventsStr = checkedEvents.length ? checkedEvents.join(" | ") : "No Events Selected";
+        paxCount = document.getElementById("rsvp-pax").value;
+      }
+
+      const payload = {
+        timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+        code: currentGuest.code,
+        inviteeName: finalName,
+        mobile: currentGuest.mobile || "-",
+        selectedPax: paxCount,
+        attendingEvents: checkedEventsStr,
+        accommodationAllocated: currentGuest.accommodation,
+        message: wishes
+      };
+
+      btn.disabled = true;
+      btn.textContent = "Recording Your Response...";
+
+      try {
+        if (!WEDDING_CONFIG.googleAppsScriptUrl.includes("YOUR_SCRIPT")) {
+          await fetch(WEDDING_CONFIG.googleAppsScriptUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(payload)
+          });
+        }
+        status.textContent = "✨ Jai Mataji! Your response & blessings have been recorded. ✨";
+        status.classList.remove("hidden");
+        btn.textContent = "Response Recorded";
+      } catch (err) {
+        status.textContent = "Unable to reach server right now. Please try again.";
+        status.classList.remove("hidden");
+        btn.disabled = false;
+        btn.textContent = "Confirm Attendance";
+      }
+    }
+
+    // Pause audio when leaving the tab/app, resume when returning
+    document.addEventListener("visibilitychange", () => {
+      const audio = document.getElementById("bg-music");
+      
+      if (document.hidden) {
+        // User switched tabs or minimized the app. Pause the music.
+        if (!audio.paused) {
+          audio.pause();
+        }
+      } else {
+        // User came back to the invitation.
+        // Only resume if they hadn't manually muted it before leaving.
+        if (isMusicPlaying) {
+          audio.play().catch(() => {
+            // Failsafe in case mobile browser blocks auto-resume
+            isMusicPlaying = false;
+            document.getElementById("music-icon").textContent = "🔇";
+          });
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
